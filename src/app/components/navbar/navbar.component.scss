@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+a {
+    .logo {
+     background-color: transparent;
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-position: center center;
+     height: 80px;
+     margin-top: 10px;
+    }
+  }
