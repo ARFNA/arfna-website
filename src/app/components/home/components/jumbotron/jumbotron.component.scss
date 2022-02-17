@@ -13,3 +13,9 @@ span {
 .divider {
     border-bottom: 1px solid ;
 }
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 64pt !important;
+    }
+}

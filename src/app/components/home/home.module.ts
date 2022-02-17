@@ -11,6 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AllergyComponent } from './components/allergy/allergy.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MosaicLayoutComponent } from './components/mosaic-layout/mosaic-layout.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -18,7 +22,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     HomeComponent,
     JumbotronComponent,
     NewsletterFormComponent,
-    TextSectionComponent
+    TextSectionComponent,
+    AllergyComponent,
+    MosaicLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +34,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule,
+    MatGridListModule
   ]
 })
 export class HomeModule { }

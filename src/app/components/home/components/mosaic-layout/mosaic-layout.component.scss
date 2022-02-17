@@ -1,0 +1,33 @@
+.innerText {
+    text-align: left;
+    line-height: 200%
+}
+
+mat-grid-list {
+    margin: 3rem;
+}
+
+div {
+    text-align: center;
+}
+
+.green {
+    background-color: #99c5b5;
+}
+
+.image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media (max-width: 1350px) {
+    .innerText {
+        line-height: normal;
+    }
+    mat-grid-list {
+        margin: 0;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+}
