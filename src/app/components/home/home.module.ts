@@ -15,6 +15,13 @@ import { AllergyComponent } from './components/allergy/allergy.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MosaicLayoutComponent } from './components/mosaic-layout/mosaic-layout.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { DonateComponent } from './components/donate/donate.component';
+import { H2PComponent } from './components/h2-p/h2-p.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { ListTextSectionComponent } from './components/list-text-section/list-text-section.component';
 
 
 @NgModule({
@@ -24,7 +31,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
     NewsletterFormComponent,
     TextSectionComponent,
     AllergyComponent,
-    MosaicLayoutComponent
+    MosaicLayoutComponent,
+    AboutComponent,
+    ContactComponent,
+    DonateComponent,
+    H2PComponent,
+    CarouselComponent,
+    ListTextSectionComponent
   ],
   imports: [
     CommonModule,

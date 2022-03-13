@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatGridList } from '@angular/material/grid-list';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mosaic-layout',
@@ -8,26 +7,36 @@ import { MatGridList } from '@angular/material/grid-list';
 })
 export class MosaicLayoutComponent implements OnInit {
 
-  public mobile: boolean = false;
+  /** Controls the column length during desktop/tablet/mobile view*/
+  public colSpans: number = 2;
 
-  public cols: number = 4;
+  /** Controls the of columns during desktop/tablet/mobile view*/
+  public cols: number = 3;
 
-  @ViewChild('grid') public grid!: MatGridList;
+  /** Controls height of columns */
+  public rowHeight: string = "200px";
 
   constructor() { }
 
   ngOnInit(): void {
-    if (window.screen.width <= 800) { 
-      this.mobile = true;
+    
+  }
+
+  ngDoCheck(): void {
+    if (window.screen.width <= 1000) {
+      this.colSpans = 1;
+      this.cols = 2;
+      this.rowHeight = "80px";
+    } else if (window.screen.width <= 1600) {
+      this.colSpans = 2;
       this.cols = 3;
+      this.rowHeight = "175px";
     } else {
-      this.mobile = false;
-      this.cols = 4;
+      this.colSpans = 2;
+      this.cols = 3;
+      this.rowHeight = "200px";
     }
   }
 
-  ngAfterViewInit() {
-    this.grid.cols = this.cols;
-  }
 
 }

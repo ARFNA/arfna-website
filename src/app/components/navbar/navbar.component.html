@@ -3,22 +3,22 @@
         <img class="logo" src="../../../assets/arfna-logo-mob.png">
     </a>
     <span class="example-spacer"></span>
-    <a mat-tab-link (click)="serveLink('/allergy')" [active]="activeLink == '/allergy'" aria-label="allergy tab">
+    <a mat-tab-link (click)="serveLink('/allergy')" [active]="activeLink === '/allergy'" aria-label="allergy tab">
         <span>Allergy</span>
     </a>
-    <a mat-tab-link (click)="serveLink('/about')" [active]="activeLink == '/about'" aria-label="about arfna tab">
-        <span>About ARNAF</span>
+    <a mat-tab-link (click)="serveLink('/about')" [active]="activeLink === '/about'" aria-label="about arfna tab">
+        <span>About ARFNA</span>
     </a>
-    <a mat-tab-link (click)="serveLink('/founder')" [active]="activeLink == '/founder'" aria-label="about founder tab">
-        <span>Founder</span>
+    <a mat-tab-link (click)="serveLink('/blog')" [active]="activeLink === '/blog'" aria-label="about blog tab">
+        <span>Blog</span>
     </a>
-    <a mat-tab-link (click)="serveLink('/contact')" [active]="activeLink == '/contact'" aria-label="contact tab">
+    <a mat-tab-link (click)="serveLink('/contact')" [active]="activeLink === '/contact'" aria-label="contact tab">
         <span>Contact</span>
     </a>
-    <a mat-tab-link (click)="serveLink('/donate')" [active]="activeLink == '/donate'" aria-label="donate tab">
+    <a mat-tab-link (click)="serveLink('/donate')" [active]="activeLink === '/donate'" aria-label="donate tab">
         <span>Donate</span>
     </a>
-    <a mat-tab-link (click)="serveLink('/login')" [active]="activeLink == '/login'" aria-label="login icon">
+    <a mat-tab-link (click)="serveLink('/login')" [active]="activeLink === '/login'" aria-label="login icon">
         <mat-icon color="accent" class="example-icon">lock</mat-icon>
         <span>Login</span>
     </a>

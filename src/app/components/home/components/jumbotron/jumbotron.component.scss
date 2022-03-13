@@ -11,11 +11,15 @@ span {
 }
 
 .divider {
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid #99c5b5;
 }
 
 @media (max-width: 750px) {
     h1 {
         font-size: 64pt !important;
+    }
+
+    .jumbotron {
+        padding: 3rem;
     }
 }

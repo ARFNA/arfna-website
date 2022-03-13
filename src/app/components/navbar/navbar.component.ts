@@ -22,8 +22,4 @@ export class NavbarComponent implements OnInit {
     this.fascadeService.routeTo(link);
   }
 
-  ngOnDestroy(): void {
-
-  }
-
 }
