@@ -6,8 +6,15 @@ img {
     box-shadow: 5px 5px 5px rgba(0,0,0,.2);
 }
 
-div {
+.flex-container {
     display: inline-flex;
+}
+
+.margin {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding-top: 1rem;
 }
 
 button {

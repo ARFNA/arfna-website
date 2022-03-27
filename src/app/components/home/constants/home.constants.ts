@@ -10,4 +10,16 @@ export class HomeConstants {
 
     public static readonly ALLERGY_SUBTITLE: string = 'Fancy Subtext here';
 
+    public static readonly CONTACT_TITLE: string = 'Contact Us';
+
+    public static readonly CONTACT_SUBTITLE: string = 'ARFNA would love to hear from you!';
+
+    public static readonly DONATE_TITLE: string = 'Donate to ARFNA';
+
+    public static readonly DONATE_SUBTITLE: string = '';
+
+    public static readonly ABOUT_TITLE: string = 'About title';
+
+    public static readonly ABOUT_SUBTITLE: string = 'Something about ARFNA is on this page';
+
 }

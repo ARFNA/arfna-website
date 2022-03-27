@@ -22,6 +22,7 @@ import { H2PComponent } from './components/h2-p/h2-p.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ListTextSectionComponent } from './components/list-text-section/list-text-section.component';
+import { ContactUsFormComponent } from './components/contact-us-form/contact-us-form.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ListTextSectionComponent } from './components/list-text-section/list-te
     DonateComponent,
     H2PComponent,
     CarouselComponent,
-    ListTextSectionComponent
+    ListTextSectionComponent,
+    ContactUsFormComponent
   ],
   imports: [
     CommonModule,

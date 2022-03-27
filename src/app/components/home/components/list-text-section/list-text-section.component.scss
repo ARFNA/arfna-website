@@ -1,8 +1,24 @@
 .section {
     width: 50%;
     margin: auto;
+    padding-bottom: 2rem;
 }
 
 .inline {
-    float: left;
+    float:left;
+}
+
+.wrapper {
+    padding: 5px;
+    display:block;
+}
+
+p {
+    margin-left: 5px;
+}
+
+mat-icon {
+    transform: scale(1.5);
+    padding-bottom: 1rem;
+    padding-right: .5rem;
 }

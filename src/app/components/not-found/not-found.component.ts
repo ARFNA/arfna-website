@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainConstants } from 'src/app/constants/main.constants';
+import { FascadeService } from 'src/app/services/fascade.service';
 
 @Component({
   selector: 'app-not-found',
@@ -10,7 +11,7 @@ export class NotFoundComponent implements OnInit {
 
   public constantMap: Map<string, string> = new Map();
 
-  constructor() { }
+  constructor(private fascadeService: FascadeService) { }
 
   ngOnInit(): void {
     this.processConstants();
@@ -21,6 +22,12 @@ export class NotFoundComponent implements OnInit {
     this.constantMap.set('subtitle', MainConstants.FOUROFOUR_SUBTITLE);
     this.constantMap.set('button', MainConstants.FOUROFOUR_BUTTON);
   }
+
+  public returnHome() {
+    this.fascadeService.routeTo('');
+  }
+
+
 
 
 }
