@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ListTextSectionComponent } from './components/list-text-section/list-text-section.component';
 import { ContactUsFormComponent } from './components/contact-us-form/contact-us-form.component';
+import { DonateButtonComponent } from './components/donate-button/donate-button.component';
+import { HeaderWithDividerComponent } from './components/header-with-divider/header-with-divider.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ContactUsFormComponent } from './components/contact-us-form/contact-us-
     H2PComponent,
     CarouselComponent,
     ListTextSectionComponent,
-    ContactUsFormComponent
+    ContactUsFormComponent,
+    DonateButtonComponent,
+    HeaderWithDividerComponent
   ],
   imports: [
     CommonModule,

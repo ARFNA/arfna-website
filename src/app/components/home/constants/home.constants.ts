@@ -16,7 +16,7 @@ export class HomeConstants {
 
     public static readonly DONATE_TITLE: string = 'Donate to ARFNA';
 
-    public static readonly DONATE_SUBTITLE: string = '';
+    public static readonly DONATE_SUBTITLE: string = 'Donate subtext here.';
 
     public static readonly ABOUT_TITLE: string = 'About title';
 
