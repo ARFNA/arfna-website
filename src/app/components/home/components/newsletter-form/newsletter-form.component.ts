@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FascadeService } from '../../services/fascade.service';
 
 @Component({
   selector: 'app-newsletter-form',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsletterFormComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * Newletter form group object
+   */
+  public form!: FormGroup;
+
+  constructor(private fascadeService: FascadeService) { }
 
   ngOnInit(): void {
+    this.form = this.fascadeService.buildNewsletterForm();
   }
 
 }

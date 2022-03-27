@@ -19,12 +19,12 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DonateComponent } from './components/donate/donate.component';
 import { H2PComponent } from './components/h2-p/h2-p.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ListTextSectionComponent } from './components/list-text-section/list-text-section.component';
 import { ContactUsFormComponent } from './components/contact-us-form/contact-us-form.component';
 import { DonateButtonComponent } from './components/donate-button/donate-button.component';
 import { HeaderWithDividerComponent } from './components/header-with-divider/header-with-divider.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -55,7 +55,8 @@ import { HeaderWithDividerComponent } from './components/header-with-divider/hea
     MatCardModule,
     MatCheckboxModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
