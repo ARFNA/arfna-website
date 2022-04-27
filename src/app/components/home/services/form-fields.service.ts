@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { FieldServiceRegex } from '../constants/field-service-regex';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +7,15 @@ export class FormFieldsService {
 
   constructor() { }
 
-  public processFieldValidationMessage(form: any, fieldName: string, content: any): string | null {
+  public processFieldValidationMessage(form: any, fieldName: string, content: Map<string, string>): string | null | undefined {
     const { errors, value } = form.controls[fieldName] || {};
     if (errors) {
-      const { required, maxlength, minlength, pattern } = errors;
-      const { EMAIL } = FieldServiceRegex;
+      const { required, maxlength, minlength, email } = errors;
       return (
-        required ? content.get("requiredTxt") :
-          maxlength ? content.get("maxLengthTxt") :
-            minlength ? content.get("minLengthTxt") :
-              pattern.requiredPattern === EMAIL ? content.get("emailPatternTxt") :
+        required ? content.get('requiredTxt') :
+          maxlength ? content.get('maxLengthTxt') :
+            minlength ? content.get('minLengthTxt') :
+              email ? content.get('emailPatternTxt') :
                 null
       );
     }

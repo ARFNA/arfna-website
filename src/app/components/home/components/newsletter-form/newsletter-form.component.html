@@ -6,13 +6,12 @@
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email">
-                <mat-error></mat-error>
+                <mat-error *ngIf="this.form.controls['email'].hasError"> {{ proccessErrors(form, "email", content) }} </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
                 <input matInput formControlName="name">
-                <mat-error>
-                </mat-error>
+                <mat-error *ngIf="this.form.controls['name'].hasError"> {{ proccessErrors(form, "name", content) }} </mat-error>
             </mat-form-field>
             <button mat-raised-button color="primary">Submit</button>
             <mat-checkbox formControlName="checkbox">Send me ARFNA Newsletters</mat-checkbox>
