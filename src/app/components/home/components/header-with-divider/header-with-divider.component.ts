@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header-with-divider',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-with-divider.component.scss']
 })
 export class HeaderWithDividerComponent implements OnInit {
+
+  @Input() section: string = '';
 
   constructor() { }
 

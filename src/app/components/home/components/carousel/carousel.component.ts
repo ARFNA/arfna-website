@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FascadeService } from 'src/app/services/fascade.service';
+import { HomeConstants } from '../../constants/home.constants';
 
 @Component({
   selector: 'app-carousel',
@@ -8,12 +10,33 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselComponent {
 
   public currentImage = 0;
+  
+  public images: string[] = [];
 
-  public images: string[] = ['../../../../assets/rosh.jpg','../../../../assets/epipen.jpg','../../../../assets/nuts.jpg'];
+  public currPage: string = '';
 
   private carouselInterval: any = setInterval(() => {this.nextImage()}, 5000);
 
-  constructor() { }
+  constructor(private fascadeService: FascadeService) { }
+
+  ngOnInit() {
+    this.fascadeService.getActiveLink().subscribe((data) => {
+      this.currPage = data;
+    });
+
+    switch(this.currPage) {
+      case '':
+        this.images = HomeConstants.HOME_CAROUSEL;
+        break;
+      case '/about':
+        this.images = HomeConstants.ABOUT_CAROUSEL;
+        break;
+      case '/donate':
+        this.images = HomeConstants.DONATE_CAROUSEL;
+        break;
+    }
+    
+  }
 
   previousImage() {
     clearInterval(this.carouselInterval);

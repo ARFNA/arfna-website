@@ -8,7 +8,7 @@ import { HomeConstants } from '../../constants/home.constants';
 })
 export class HomeComponent implements OnInit {
 
-  public constantMap: Map<string, string> = new Map();
+  public constantMap: Map<string, any> = new Map();
 
   constructor() { }
 
@@ -21,6 +21,11 @@ export class HomeComponent implements OnInit {
     this.constantMap.set('title', HomeConstants.HOME_TITLE);
     this.constantMap.set('subtitle', HomeConstants.HOME_SUBTITLE);
     this.constantMap.set('donate', HomeConstants.HOME_DONATE);
+    this.constantMap.set('section', HomeConstants.HOME_SECTION);
+    this.constantMap.set('subheader1', HomeConstants.HOME_HEADER1);
+    this.constantMap.set('body1', HomeConstants.HOME_BODY1);
+    this.constantMap.set('subheader2', HomeConstants.HOME_HEADER2);
+    this.constantMap.set('body2', HomeConstants.HOME_BODY2);
   }
 
 }

@@ -1,8 +1,9 @@
 <app-jumbotron [title]="constantMap.get('title')" [subtitle]="constantMap.get('subtitle')"></app-jumbotron>
 <div>
-    <app-header-with-divider></app-header-with-divider>
+    <app-header-with-divider [section]="constantMap.get('section')"></app-header-with-divider>
     <app-donate-button></app-donate-button>
 </div>
 <app-carousel></app-carousel>
-<app-text-section></app-text-section>
+<app-text-section  [section]="constantMap.get('section2')" [header1]="constantMap.get('subheader1')" [body1]="constantMap.get('body1')"
+[header2]="constantMap.get('subheader2')" [body2]="constantMap.get('body2')"></app-text-section>
 
