@@ -22,4 +22,8 @@ export class HomeConstants {
 
     public static readonly ABOUT_SUBTITLE: string = 'Something about ARFNA is on this page';
 
+    public static readonly MODAL_Q1: string = 'modal-1';
+
+    public static readonly MODAL_Q2: string = 'modal-2';
+
 }

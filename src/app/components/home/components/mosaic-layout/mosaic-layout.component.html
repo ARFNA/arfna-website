@@ -1,7 +1,7 @@
 <mat-grid-list cols="{{cols}}" gutterSize="15px" rowHeight="{{rowHeight}}">
     <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
         <div>
-            <h2 class="green">What are nut allergies?</h2>
+            <a (click)="openModal('modal-1')"><h2 class="green">What are nut allergies?</h2></a>
             <p class="innerText">Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
                 justo nec ultrices dui. Non
                 curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
@@ -112,3 +112,28 @@
         </div>
     </mat-grid-tile>
 </mat-grid-list>
+
+<app-modal [id]='modal1'>
+    <h2 class="green">What are nut allergies?</h2>
+            <p>Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
+                justo nec ultrices dui. Non
+                curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
+                Facilisi etiam
+                dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet
+                nibh
+                praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus
+                iaculis
+                urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper
+                morbi
+                tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit
+                sed
+                vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis
+                posuere morbi.
+                Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus.
+                Lectus magna
+                fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin
+                sagittis
+                nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan
+                lacus
+                vel.</p>
+</app-modal>

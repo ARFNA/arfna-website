@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FascadeService } from 'src/app/services/fascade.service';
+import { HomeConstants } from 'src/app/components/home/constants/home.constants';
 
 @Component({
   selector: 'app-mosaic-layout',
@@ -16,10 +18,15 @@ export class MosaicLayoutComponent implements OnInit {
   /** Controls height of columns */
   public rowHeight: string = "200px";
 
-  constructor() { }
+  public modal1: string = HomeConstants.MODAL_Q1;
+  public head: string= 'head';
+  public body: string= 'body';
+
+
+  constructor(private fascadeService: FascadeService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   ngDoCheck(): void {
@@ -36,6 +43,14 @@ export class MosaicLayoutComponent implements OnInit {
       this.cols = 3;
       this.rowHeight = "200px";
     }
+  }
+
+  openModal(id: string) {
+    this.fascadeService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.fascadeService.close(id);
   }
 
 

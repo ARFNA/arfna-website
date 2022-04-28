@@ -25,6 +25,7 @@ import { ContactUsFormComponent } from './components/contact-us-form/contact-us-
 import { DonateButtonComponent } from './components/donate-button/donate-button.component';
 import { HeaderWithDividerComponent } from './components/header-with-divider/header-with-divider.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListTextSectionComponent,
     ContactUsFormComponent,
     DonateButtonComponent,
-    HeaderWithDividerComponent
+    HeaderWithDividerComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
