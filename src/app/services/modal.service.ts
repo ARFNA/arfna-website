@@ -17,7 +17,7 @@ export class ModalService {
       this.modals.push(modal);
   }
 
-  remove(id: string) {
+  remove(id: string | undefined) {
       // remove modal from array of active modals
       this.modals = this.modals.filter(x => x.id !== id);
   }

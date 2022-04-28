@@ -8,11 +8,7 @@ import { FascadeService } from 'src/app/services/fascade.service';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() public header: string = '';
-
-  @Input() public body: string = '';
-
-  @Input() id: string = '';
+  @Input() id: string | undefined = '';
 
   private element: any;
 

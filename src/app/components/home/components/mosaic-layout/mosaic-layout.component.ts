@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FascadeService } from 'src/app/services/fascade.service';
-import { HomeConstants } from 'src/app/components/home/constants/home.constants';
 
 @Component({
   selector: 'app-mosaic-layout',
@@ -18,10 +17,23 @@ export class MosaicLayoutComponent implements OnInit {
   /** Controls height of columns */
   public rowHeight: string = "200px";
 
-  public modal1: string = HomeConstants.MODAL_Q1;
-  public head: string= 'head';
-  public body: string= 'body';
+  /** Inputs for content passed from parent component */
 
+  @Input() public header1: string | undefined = '';
+  @Input() public body1: string | undefined = '';
+  @Input() public modal1: string | undefined = '';
+
+  @Input() public header2: string | undefined = '';
+  @Input() public body2: string | undefined = '';
+  @Input() public modal2: string | undefined = '';
+
+  @Input() public header3: string | undefined = '';
+  @Input() public body3: string | undefined = '';
+  @Input() public modal3: string | undefined = '';
+
+  @Input() public header4: string | undefined = '';
+  @Input() public body4: string | undefined = '';
+  @Input() public modal4: string | undefined = '';
 
   constructor(private fascadeService: FascadeService) { }
 

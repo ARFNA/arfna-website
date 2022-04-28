@@ -25,7 +25,7 @@ export class FascadeService {
     this.modalService.add(element);
   }
 
-  public remove(id: string) {
+  public remove(id: string | undefined) {
     this.modalService.remove(id);
   }
 

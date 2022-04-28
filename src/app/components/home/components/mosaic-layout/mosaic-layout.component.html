@@ -1,28 +1,8 @@
 <mat-grid-list cols="{{cols}}" gutterSize="15px" rowHeight="{{rowHeight}}">
     <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
         <div>
-            <a (click)="openModal('modal-1')"><h2 class="green">What are nut allergies?</h2></a>
-            <p class="innerText">Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
-                justo nec ultrices dui. Non
-                curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
-                Facilisi etiam
-                dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet
-                nibh
-                praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus
-                iaculis
-                urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper
-                morbi
-                tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit
-                sed
-                vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis
-                posuere morbi.
-                Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus.
-                Lectus magna
-                fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin
-                sagittis
-                nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan
-                lacus
-                vel.</p>
+            <a (click)="openModal('modal-1')"><h2 class="green">{{header1}}</h2></a>
+            <p class="innerText"> {{body1}}</p>
         </div>
     </mat-grid-tile>
     <mat-grid-tile rowspan="2" class="image"
@@ -31,54 +11,14 @@
     </mat-grid-tile>
     <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
         <div>
-            <h2 class="green">What is anaphylaxis?</h2>
-            <p class="innerText">Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
-                justo nec ultrices dui. Non
-                curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
-                Facilisi etiam
-                dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet
-                nibh
-                praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus
-                iaculis
-                urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper
-                morbi
-                tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit
-                sed
-                vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis
-                posuere morbi.
-                Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus.
-                Lectus magna
-                fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin
-                sagittis
-                nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan
-                lacus
-                vel.</p>
+            <a (click)="openModal('modal-2')"><h2 class="green">{{header2}}</h2></a>
+            <p class="innerText">{{body2}}</p>
         </div>
     </mat-grid-tile>
     <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
         <div>
-            <h2 class="green">What does avoidance mean?</h2>
-            <p class="innerText">Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
-                justo nec ultrices dui. Non
-                curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
-                Facilisi etiam
-                dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet
-                nibh
-                praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus
-                iaculis
-                urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper
-                morbi
-                tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit
-                sed
-                vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis
-                posuere morbi.
-                Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus.
-                Lectus magna
-                fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin
-                sagittis
-                nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan
-                lacus
-                vel.</p>
+            <a (click)="openModal('modal-3')"><h2 class="green">{{header3}}</h2></a>
+            <p class="innerText">{{body3}}</p>
         </div>
     </mat-grid-tile>
     <mat-grid-tile rowspan="2" class="image" style="background-image: url(../../../../../assets/peanut-butter.jpg);">
@@ -87,53 +27,32 @@
     </mat-grid-tile>
     <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
         <div>
-            <h2 class="green">What are the current treatments that exist today?</h2>
-            <p class="innerText">Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
-                justo nec ultrices dui. Non
-                curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
-                Facilisi etiam
-                dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet
-                nibh
-                praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus
-                iaculis
-                urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper
-                morbi
-                tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit
-                sed
-                vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis
-                posuere morbi.
-                Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus.
-                Lectus magna
-                fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin
-                sagittis
-                nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan
-                lacus
-                vel.</p>
+            <a (click)="openModal('modal-4')"><h2 class="green">{{header4}}</h2></a>
+            <p class="innerText">{{body4}}</p>
         </div>
     </mat-grid-tile>
 </mat-grid-list>
 
 <app-modal [id]='modal1'>
-    <h2 class="green">What are nut allergies?</h2>
-            <p>Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra
-                justo nec ultrices dui. Non
-                curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
-                Facilisi etiam
-                dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet
-                nibh
-                praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus
-                iaculis
-                urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper
-                morbi
-                tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit
-                sed
-                vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis
-                posuere morbi.
-                Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus.
-                Lectus magna
-                fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin
-                sagittis
-                nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan
-                lacus
-                vel.</p>
+    <h2 class="green">{{header1}}</h2>
+            <p>{{body1}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-1')"><mat-icon>close</mat-icon></button>
+</app-modal>
+
+<app-modal [id]='modal2'>
+    <h2 class="green">{{header2}}</h2>
+            <p>{{body2}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-2')"><mat-icon>close</mat-icon></button>
+</app-modal>
+
+<app-modal [id]='modal3'>
+    <h2 class="green">{{header3}}</h2>
+            <p>{{body3}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-3')"><mat-icon>close</mat-icon></button>
+</app-modal>
+
+<app-modal [id]='modal4'>
+    <h2 class="green">{{header4}}</h2>
+            <p>{{body4}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-4')"><mat-icon>close</mat-icon></button>
 </app-modal>
