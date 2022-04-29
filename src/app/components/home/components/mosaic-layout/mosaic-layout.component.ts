@@ -42,11 +42,11 @@ export class MosaicLayoutComponent implements OnInit {
   }
 
   ngDoCheck(): void {
-    if (window.screen.width <= 1000) {
+    if (this.getWidth() <= 1000) {
       this.colSpans = 1;
       this.cols = 2;
       this.rowHeight = "80px";
-    } else if (window.screen.width <= 1600) {
+    } else if (this.getWidth() <= 1600) {
       this.colSpans = 2;
       this.cols = 3;
       this.rowHeight = "175px";
@@ -55,6 +55,11 @@ export class MosaicLayoutComponent implements OnInit {
       this.cols = 3;
       this.rowHeight = "200px";
     }
+  }
+
+  /** For testing purposes */
+  getWidth(): number {
+    return window.screen.width
   }
 
   openModal(id: string) {

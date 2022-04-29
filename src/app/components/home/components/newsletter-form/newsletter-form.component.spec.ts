@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { FascadeService } from 'src/app/services/fascade.service';
 
 import { NewsletterFormComponent } from './newsletter-form.component';
 
@@ -8,7 +10,8 @@ describe('NewsletterFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewsletterFormComponent ]
+      declarations: [ NewsletterFormComponent ],
+      providers: [FascadeService, FormBuilder]
     })
     .compileComponents();
   });

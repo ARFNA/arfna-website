@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavbarService } from './navbar.service';
 
@@ -6,7 +7,7 @@ describe('NavbarService', () => {
   let service: NavbarService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({imports: [RouterTestingModule]});
     service = TestBed.inject(NavbarService);
   });
 
