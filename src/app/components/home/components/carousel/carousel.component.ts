@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FascadeService } from 'src/app/services/fascade.service';
 import { HomeConstants } from '../../constants/home.constants';
 
@@ -7,7 +7,7 @@ import { HomeConstants } from '../../constants/home.constants';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit {
 
   public currentImage = 0;
   

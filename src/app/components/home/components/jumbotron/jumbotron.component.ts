@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FascadeService } from 'src/app/services/fascade.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { FascadeService } from 'src/app/services/fascade.service';
   templateUrl: './jumbotron.component.html',
   styleUrls: ['./jumbotron.component.scss']
 })
-export class JumbotronComponent implements OnInit {
+export class JumbotronComponent {
 
   @Input() title: string | undefined = '';
 
@@ -15,9 +15,6 @@ export class JumbotronComponent implements OnInit {
   @Input() donateButtonTxt: string | undefined = '';
 
   constructor(private fascadeService: FascadeService) { }
-
-  ngOnInit(): void {
-  }
 
   public goToDonate() {
     this.fascadeService.routeTo('/donate');

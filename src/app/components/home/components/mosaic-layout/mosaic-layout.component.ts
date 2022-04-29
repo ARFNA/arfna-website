@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { FascadeService } from 'src/app/services/fascade.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { FascadeService } from 'src/app/services/fascade.service';
   templateUrl: './mosaic-layout.component.html',
   styleUrls: ['./mosaic-layout.component.scss']
 })
-export class MosaicLayoutComponent implements OnInit {
+export class MosaicLayoutComponent implements DoCheck {
 
   /** Controls the column length during desktop/tablet/mobile view*/
   public colSpans: number = 2;
@@ -36,10 +36,6 @@ export class MosaicLayoutComponent implements OnInit {
   @Input() public modal4: string | undefined = '';
 
   constructor(private fascadeService: FascadeService) { }
-
-  ngOnInit(): void {
-
-  }
 
   ngDoCheck(): void {
     if (this.getWidth() <= 1000) {

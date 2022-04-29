@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './list-text-section.component.html',
   styleUrls: ['./list-text-section.component.scss']
 })
-export class ListTextSectionComponent implements OnInit {
+export class ListTextSectionComponent {
 
   @Input() header: string = '';
   @Input() body: string = '';
@@ -14,8 +14,5 @@ export class ListTextSectionComponent implements OnInit {
   @Input() address: string = '';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

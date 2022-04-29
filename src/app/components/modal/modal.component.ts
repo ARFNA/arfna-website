@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { FascadeService } from 'src/app/services/fascade.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { FascadeService } from 'src/app/services/fascade.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
 
   @Input() id: string | undefined = '';
 
