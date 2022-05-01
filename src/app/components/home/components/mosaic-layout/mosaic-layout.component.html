@@ -1,0 +1,58 @@
+<mat-grid-list cols="{{cols}}" gutterSize="15px" rowHeight="{{rowHeight}}">
+    <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
+        <div>
+            <a (click)="openModal('modal-1')"><h2 class="green">{{header1}}</h2></a>
+            <p class="innerText"> {{body1}}</p>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" class="image"
+        style="background-image: url(../../../../../assets/peanut-butter-sandwich.jpg);"></mat-grid-tile>
+    <mat-grid-tile rowspan="2" class="image" style="background-image: url(../../../../../assets/epipen.jpg);">
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
+        <div>
+            <a (click)="openModal('modal-2')"><h2 class="green">{{header2}}</h2></a>
+            <p class="innerText">{{body2}}</p>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
+        <div>
+            <a (click)="openModal('modal-3')"><h2 class="green">{{header3}}</h2></a>
+            <p class="innerText">{{body3}}</p>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" class="image" style="background-image: url(../../../../../assets/peanut-butter.jpg);">
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" class="image" style="background-image: url(../../../../../assets/chocolate.jpg);">
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" colspan="{{colSpans}}">
+        <div>
+            <a (click)="openModal('modal-4')"><h2 class="green">{{header4}}</h2></a>
+            <p class="innerText">{{body4}}</p>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<app-modal [id]='modal1'>
+    <h2 class="green">{{header1}}</h2>
+            <p>{{body1}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-1')"><mat-icon>close</mat-icon></button>
+</app-modal>
+
+<app-modal [id]='modal2'>
+    <h2 class="green">{{header2}}</h2>
+            <p>{{body2}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-2')"><mat-icon>close</mat-icon></button>
+</app-modal>
+
+<app-modal [id]='modal3'>
+    <h2 class="green">{{header3}}</h2>
+            <p>{{body3}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-3')"><mat-icon>close</mat-icon></button>
+</app-modal>
+
+<app-modal [id]='modal4'>
+    <h2 class="green">{{header4}}</h2>
+            <p>{{body4}}</p>
+            <button mat-mini-fab (click)="closeModal('modal-4')"><mat-icon>close</mat-icon></button>
+</app-modal>

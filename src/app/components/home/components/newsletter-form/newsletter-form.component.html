@@ -1,0 +1,20 @@
+<div class="formBackground">
+    <mat-icon color="primary">newspaper</mat-icon>
+    <h1 class="mat-display-1">Newsletter</h1>
+    <mat-card>
+        <form [formGroup]="form">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="this.form.controls['email'].hasError"> {{ proccessErrors(form, "email", content) }} </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="this.form.controls['name'].hasError"> {{ proccessErrors(form, "name", content) }} </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Submit</button>
+            <mat-checkbox formControlName="checkbox">Send me ARFNA Newsletters</mat-checkbox>
+        </form>
+    </mat-card>
+</div>

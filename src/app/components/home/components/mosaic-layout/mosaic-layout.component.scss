@@ -1,0 +1,53 @@
+.innerText {
+    text-align: left;
+    line-height: 200%
+}
+
+mat-grid-list {
+    width: 60%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+div {
+    text-align: center;
+}
+
+.green {
+    color: #99c5b5;
+}
+
+mat-icon{
+    color: #ffffff;
+}
+
+.image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px solid #99c5b5;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+}
+
+@media (max-width: 1600px) {
+    mat-grid-list {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .innerText {
+        display: none;
+    }
+    mat-grid-list {
+        width: 90%;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 1300px) {
+    .innerText {
+        line-height: 150%;
+    }
+}

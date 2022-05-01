@@ -1,3 +1,12 @@
+@import '../../../styles.scss';
+
+nav {
+    background-color: #fafafa;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 .example-spacer {
     flex: 1 1 auto;
 }
@@ -6,9 +15,13 @@ a {
     .logo {
      background-color: transparent;
      background-repeat: no-repeat;
-     background-size: contain;
+     background-size: auto;
      background-position: center center;
-     height: 80px;
-     margin-top: 10px;
+     height: 45px;
+     margin-left: 20px;
     }
-  }
+}
+
+span {
+    color: #648c67;
+}

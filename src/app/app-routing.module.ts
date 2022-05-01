@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -11,8 +12,12 @@ const routes: Routes = [
     }, path: ""
   },
   {
+    path: "404",
+    component: NotFoundComponent
+  },
+  {
     path: "**",
-    redirectTo: ""
+    redirectTo: "404"
   }
 ];
 

@@ -1,24 +1,26 @@
-<p>
-    <mat-toolbar>
-        <a href="" aria-label="arfna logo">
-            <img class="logo" src="../../../assets/arfna-logo-mob.png">
-        </a>
-        <span class="example-spacer"></span>
-        <button mat-button href="/allergy" color="accent" aria-label="allergy tab">
-            <span>Allergy</span>
-        </button>
-        <button mat-button href="/about" color="accent" aria-label="about arfna tab">
-            <span>About ARNAF</span>
-        </button>
-        <button mat-button href="/contact" color="accent" aria-label="contact tb">
-            <span>Contact</span>
-        </button>
-        <button mat-button href="/donate" color="accent" aria-label="donate tab">
-            <span>Donate</span>
-        </button>
-        <button mat-button href="/login" color="accent" aria-label="login icon">
-            <mat-icon class="example-icon">lock</mat-icon>
-            <span>Login</span>
-        </button>
-    </mat-toolbar>
-</p>
+<nav mat-tab-nav-bar color="primary" [tabPanel]="tabPanel">
+    <a href="" aria-label="arfna logo">
+        <img class="logo" src="../../../assets/arfna-logo-mob.png">
+    </a>
+    <span class="example-spacer"></span>
+    <a mat-tab-link (click)="serveLink('/allergy')" [active]="activeLink === '/allergy'" aria-label="allergy tab">
+        <span>Allergy</span>
+    </a>
+    <a mat-tab-link (click)="serveLink('/about')" [active]="activeLink === '/about'" aria-label="about arfna tab">
+        <span>About ARFNA</span>
+    </a>
+    <a mat-tab-link (click)="serveLink('/blog')" [active]="activeLink === '/blog'" aria-label="about blog tab">
+        <span>Blog</span>
+    </a>
+    <a mat-tab-link (click)="serveLink('/contact')" [active]="activeLink === '/contact'" aria-label="contact tab">
+        <span>Contact</span>
+    </a>
+    <a mat-tab-link (click)="serveLink('/donate')" [active]="activeLink === '/donate'" aria-label="donate tab">
+        <span>Donate</span>
+    </a>
+    <a mat-tab-link (click)="serveLink('/login')" [active]="activeLink === '/login'" aria-label="login icon">
+        <mat-icon color="accent" class="example-icon">lock</mat-icon>
+        <span>Login</span>
+    </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

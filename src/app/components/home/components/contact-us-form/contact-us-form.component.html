@@ -1,0 +1,27 @@
+<div class="formBackground">
+    <mat-icon color="primary">mail_outline</mat-icon>
+    <h1 class="mat-display-1">Contact Us</h1>
+    <mat-card>
+        <form [formGroup]="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="this.form.controls['email'].hasError"> {{ proccessErrors(form, "email", content) }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="this.form.controls['name'].hasError"> {{ proccessErrors(form, "name", content) }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Message</mat-label>
+            <textarea matInput placeholder="Enter your message here!" formControlName="message"></textarea>
+            <mat-error *ngIf="this.form.controls['message'].hasError"> {{ proccessErrors(form, "message", content) }}
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Submit</button>
+        </form>
+    </mat-card>
+</div>
