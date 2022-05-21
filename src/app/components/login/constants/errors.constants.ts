@@ -6,7 +6,7 @@ export class Errors {
 
     public static readonly EMAIL: string = 'Please enter a valid email address.';
 
-    public static readonly MINLENGTH: string = 'Input must be atleast two characters';
+    public static readonly MINLENGTH: string = 'Input must meet minimum character requirements of';
 
     public static readonly MAXLENGTH1000: string = 'Input exceeded 1000 characters';
 

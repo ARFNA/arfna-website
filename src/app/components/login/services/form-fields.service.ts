@@ -11,13 +11,13 @@ export class FormFieldsService {
   public processFieldValidationMessage(form: any, fieldName: string, content: Map<string, string>): string | undefined {
     const { errors, value } = form.controls[fieldName] || {};
     if (errors) {
-      const { required, maxlength, minlength, email, passwordConfirmation } = errors;
+      const { required, maxlength, minlength, email } = errors;
       return (
         required ? content.get('requiredTxt') :
           maxlength ? content.get('maxLengthTxt') :
-            minlength ? content.get('minLengthTxt') :
+            minlength && value.length < 2 ? `${content.get('minLengthTxt')} 2` :
+              minlength && value.length < 12 ? `${content.get('minLengthTxt')} 12` :
               email ? content.get('emailPatternTxt') :
-                passwordConfirmation ? content.get('passwordMismatch') :
                   ''
       );
     }
@@ -33,6 +33,6 @@ export class FormFieldsService {
   }
 
   public passComparator(password: AbstractControl, repassword: AbstractControl) {
-    return (password.value === repassword.value);
+    return !(password.value === repassword.value);
   }
 }

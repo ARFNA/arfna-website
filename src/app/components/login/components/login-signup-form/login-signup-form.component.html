@@ -6,24 +6,25 @@
       <mat-tab-group mat-stretch-tabs>
         <mat-tab label="Sign In">
             <mat-card-content>
-              <form action="">
+              <form [formGroup]="loginForm">
                 <mat-form-field>
                   <input
                     matInput
                     placeholder="Email"
-                    required
-                    name="email">
-                  <mat-icon matSuffix>email</mat-icon>
+                    formControlName="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="loginForm.controls['email'].hasError"> {{ proccessErrors(loginForm, "email", content) }}
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                   <input
                     matInput
                     placeholder="Password"
                     type="password"
-                    required
-                    minlength="6"
-                    name="password">
-                  <mat-icon matSuffix>lock</mat-icon>
+                    formControlName="password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <mat-error *ngIf="loginForm.controls['password'].hasError"> {{ proccessErrors(loginForm, "password", content) }}
+                    </mat-error>
                 </mat-form-field>
                 <button
                   mat-raised-button
@@ -37,45 +38,47 @@
         </mat-tab>
         <mat-tab label="Sign Up">
           <mat-card-content>
-            <form action="">
+            <form [formGroup]="signupForm">
               <mat-form-field>
                 <input
                   matInput
                   placeholder="Name"
-                  required
-                  name="username">
+                  formControlName="name">
                 <mat-icon matSuffix>perm_identity</mat-icon>
-  
+                <mat-error *ngIf="signupForm.controls['name'].hasError"> {{ proccessErrors(signupForm, "name", content) }}
+                </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <input
                   matInput
                   placeholder="Email"
-                  required
-                  name="email">
+                  formControlName="email">
                 <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="signupForm.controls['email'].hasError"> {{ proccessErrors(signupForm, "email", content) }}
+                </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <input
                   matInput
                   placeholder="Password"
                   type="password"
-                  required
-                  minlength="6"
-                  name="password">
+                  formControlName="password">
                 <mat-icon matSuffix>lock</mat-icon>
-  
+                <mat-error *ngIf="signupForm.controls['password'].hasError"> {{ proccessErrors(signupForm, "password", content) }}
+                </mat-error>
               </mat-form-field>
               <mat-form-field>
                   <input
                   matInput
                   placeholder="Confirm Password"
                   type="password"
-                  required
-                  minlength="6"
-                  name="repassword">
+                  formControlName="repassword">
                 <mat-icon matSuffix>lock</mat-icon>
+                <mat-error *ngIf="signupForm.controls['repassword'].hasError"> {{ proccessErrors(signupForm, "repassword", content) }}
+                </mat-error>
               </mat-form-field>
+              <mat-error style="text-align:center;" *ngIf="signupForm.hasError('passwordConfirmation')"> {{ content.get('passMismatch') }}
+              </mat-error>
               <button
                 mat-raised-button
                 color="primary"

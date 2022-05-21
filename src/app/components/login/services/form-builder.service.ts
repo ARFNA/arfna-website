@@ -11,10 +11,10 @@ export class FormBuilderService {
     private formFieldService: FormFieldsService) { }
 
   public buildLoginFormGroup(): FormGroup {
-    const { required, email } = Validators;
+    const { required, email, minLength } = Validators;
     return this.formBuilder.group({
       email: ['', [required, email]],
-      password: ['', [required]]
+      password: ['', [required, minLength(12)]]
     })
   }
 
@@ -23,8 +23,8 @@ export class FormBuilderService {
     return this.formBuilder.group({
       name: ['', [required, maxLength(64), minLength(2)]],
       email: ['', [required, email]],
-      password: ['', [required]],
-      repassword: ['', [required]]
+      password: ['', [required, minLength(12)]],
+      repassword: ['', [required, minLength(12)]]
     }, 
     { validator: [this.formFieldService.passwordConfirmation('password', 'repassword')] })
   }

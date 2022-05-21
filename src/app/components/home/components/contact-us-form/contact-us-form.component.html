@@ -6,19 +6,19 @@
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
-            <mat-error *ngIf="this.form.controls['email'].hasError"> {{ proccessErrors(form, "email", content) }}
+            <mat-error *ngIf="form.controls['email'].hasError"> {{ proccessErrors(form, "email", content) }}
             </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name">
-            <mat-error *ngIf="this.form.controls['name'].hasError"> {{ proccessErrors(form, "name", content) }}
+            <mat-error *ngIf="form.controls['name'].hasError"> {{ proccessErrors(form, "name", content) }}
             </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Message</mat-label>
             <textarea matInput placeholder="Enter your message here!" formControlName="message"></textarea>
-            <mat-error *ngIf="this.form.controls['message'].hasError"> {{ proccessErrors(form, "message", content) }}
+            <mat-error *ngIf="form.controls['message'].hasError"> {{ proccessErrors(form, "message", content) }}
             </mat-error>
         </mat-form-field>
         <button mat-raised-button color="primary">Submit</button>
