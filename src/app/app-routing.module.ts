@@ -12,6 +12,14 @@ const routes: Routes = [
     }, path: ""
   },
   {
+    loadChildren: () => {
+      return import("./components/login/login.module")
+      .then((m) => {
+        return m.LoginModule;
+      });
+    }, path: "login"
+  },
+  {
     path: "404",
     component: NotFoundComponent
   },
