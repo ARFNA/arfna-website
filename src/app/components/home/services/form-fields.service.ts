@@ -7,7 +7,7 @@ export class FormFieldsService {
 
   constructor() { }
 
-  public processFieldValidationMessage(form: any, fieldName: string, content: Map<string, string>): string | null | undefined {
+  public processFieldValidationMessage(form: any, fieldName: string, content: Map<string, string>): string | undefined {
     const { errors, value } = form.controls[fieldName] || {};
     if (errors) {
       const { required, maxlength, minlength, email } = errors;
@@ -16,9 +16,9 @@ export class FormFieldsService {
           maxlength ? content.get('maxLengthTxt') :
             minlength ? content.get('minLengthTxt') :
               email ? content.get('emailPatternTxt') :
-                null
+                ''
       );
     }
-    return null;
+    return '';
   }
 }

@@ -11,16 +11,15 @@ export class FascadeService {
   constructor(private formBuilder: FormBuilderService,
     private formFieldsService: FormFieldsService) { }
 
-  public buildNewsletterForm(): FormGroup {
-    return this.formBuilder.buildNewsletterFormGroup();
+  public buildLoginForm(): FormGroup {
+    return this.formBuilder.buildLoginFormGroup();
   }
 
-  public buildContactUsForm(): FormGroup {
-    return this.formBuilder.buildContactUsFormGroup();
+  public buildSignUpForm(): FormGroup {
+    return this.formBuilder.buildSignUpFormGroup();
   }
 
   public proccessErrorMessages(form: FormGroup, fieldName: string, content: Map<string, string>): string | undefined {
     return this.formFieldsService.processFieldValidationMessage(form, fieldName, content);
   }
-
 }
