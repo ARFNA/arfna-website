@@ -32,7 +32,7 @@
                   class="login-button">
                   Sign In
                 </button>
-  
+                <mat-progress-bar *ngIf="active" mode="indeterminate"></mat-progress-bar>
               </form>
             </mat-card-content>
         </mat-tab>
@@ -85,6 +85,7 @@
                 class="login-button">
                 Sign Up
               </button>
+              <mat-progress-bar *ngIf="active" mode="indeterminate"></mat-progress-bar>
             </form>
           </mat-card-content>
         </mat-tab>

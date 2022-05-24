@@ -24,6 +24,8 @@ export class LoginSignupFormComponent implements OnInit {
 
   public errorMessage!: string;
 
+  public active: boolean = false;
+
   constructor(private fascadeService: FascadeService) { }
 
   ngOnInit(): void {
@@ -46,6 +48,7 @@ export class LoginSignupFormComponent implements OnInit {
   }
 
   public signup() {
+    this.toggleActive();
     let formData: Subscriber = new Subscriber();
     Object.assign(formData, this.signupForm.value);
 
@@ -58,16 +61,18 @@ export class LoginSignupFormComponent implements OnInit {
       //redirect and change navbar state from login to logout
     },
     (error: HttpErrorResponse) => {
+      this.toggleActive();
       if (!error.status) {
         this.errorMessage = 'Something went wrong. Please refresh and try again.'
       } else {
-        this.errorMessage = `Error: ${error.error.message}`;
+        this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
       }
     });
     
   }
 
   public login() {
+    this.toggleActive();
     let formData: Subscriber = new Subscriber();
     Object.assign(formData, this.loginForm.value);
     
@@ -76,13 +81,18 @@ export class LoginSignupFormComponent implements OnInit {
       //redirect and change navbar state from login to logout
     },
     (error: HttpErrorResponse) => {
+      this.toggleActive();
       if (!error.status) {
         this.errorMessage = 'Something went wrong. Please refresh and try again.'
       } else {
-        this.errorMessage = `Error: ${error.error.message}`;
+        this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
       }
     });
     
+  }
+
+  public toggleActive(){
+    this.active = !this.active;
   }
 
 }

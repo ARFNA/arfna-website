@@ -66,7 +66,7 @@ export class NewsletterFormComponent implements OnInit {
       if (!error.status) {
         this.errorMessage = 'Something went wrong. Please refresh and try again.'
       } else {
-        this.errorMessage = `Error: ${error.error.message}`;
+        this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
       }
     });
     
