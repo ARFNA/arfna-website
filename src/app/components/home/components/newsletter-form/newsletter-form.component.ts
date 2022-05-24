@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FascadeService } from '../../services/fascade.service';
 import { Errors } from '../../constants/errors.constants';
+import { Subscriber } from 'src/app/models/subscriber';
+import { MSubscriber } from 'src/app/models/m-subscriber';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-newsletter-form',
@@ -20,6 +23,12 @@ export class NewsletterFormComponent implements OnInit {
    */
   public content: Map<string, string> = new Map<string, string>();
 
+  public errorMessage!: string;
+
+  public success: boolean = false;
+
+  public active: boolean = false;
+
   constructor(private fascadeService: FascadeService) { }
 
   ngOnInit(): void {
@@ -36,6 +45,31 @@ export class NewsletterFormComponent implements OnInit {
     this.content.set('requiredTxt', Errors.REQUIRE);
     this.content.set('maxLengthTxt', Errors.MAXLENGTH);
     this.content.set('minLengthTxt', Errors.MINLENGTH);
+  }
+
+  public toggleActive(){
+    this.active = !this.active;
+  }
+
+  public submit() {
+    this.toggleActive();
+    let formData: Subscriber = new Subscriber();
+    Object.assign(formData, this.form.value);
+    
+    this.fascadeService.addSubscriber(new MSubscriber('V1', 'REGISTER', formData))
+    .subscribe((response) => {
+      this.toggleActive();
+      this.success = true;
+    },
+    (error: HttpErrorResponse) => {
+      this.toggleActive();
+      if (!error.status) {
+        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+      } else {
+        this.errorMessage = `Error: ${error.error.message}`;
+      }
+    });
+    
   }
 
 }

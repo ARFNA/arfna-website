@@ -1,7 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Errors } from 'src/app/components/login/constants/errors.constants';
 import { FascadeService } from 'src/app/components/login/services/fascade.service';
+import { MSubscriber } from 'src/app/models/m-subscriber';
+import { Subscriber } from 'src/app/models/subscriber';
 
 @Component({
   selector: 'app-login-signup-form',
@@ -18,6 +21,8 @@ export class LoginSignupFormComponent implements OnInit {
   public loginForm!: FormGroup;
 
   public signupForm!: FormGroup;
+
+  public errorMessage!: string;
 
   constructor(private fascadeService: FascadeService) { }
 
@@ -38,6 +43,46 @@ export class LoginSignupFormComponent implements OnInit {
     this.content.set('minLengthTxt', Errors.MINLENGTH);
     this.content.set('passMismatch', Errors.PASSCONFIRM);
     this.content.set('passLength', Errors.PASSCONFIRM);
+  }
+
+  public signup() {
+    let formData: Subscriber = new Subscriber();
+    Object.assign(formData, this.signupForm.value);
+
+    // check if has email
+    // if none add with password
+    // if has, add password
+    
+    this.fascadeService.manageSubscriber(new MSubscriber('V1', 'ADD_SUBSCRIBER_WITH_PASSWORD', formData))
+    .subscribe((response) => {
+      //redirect and change navbar state from login to logout
+    },
+    (error: HttpErrorResponse) => {
+      if (!error.status) {
+        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+      } else {
+        this.errorMessage = `Error: ${error.error.message}`;
+      }
+    });
+    
+  }
+
+  public login() {
+    let formData: Subscriber = new Subscriber();
+    Object.assign(formData, this.loginForm.value);
+    
+    this.fascadeService.manageSubscriber(new MSubscriber('V1', 'LOGIN', formData))
+    .subscribe((response) => {
+      //redirect and change navbar state from login to logout
+    },
+    (error: HttpErrorResponse) => {
+      if (!error.status) {
+        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+      } else {
+        this.errorMessage = `Error: ${error.error.message}`;
+      }
+    });
+    
   }
 
 }

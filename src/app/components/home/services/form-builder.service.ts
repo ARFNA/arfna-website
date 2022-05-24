@@ -12,8 +12,7 @@ export class FormBuilderService {
     const { required, maxLength, minLength, email } = Validators;
     return this.formBuilder.group({
       name: ['', [required, maxLength(64), minLength(2)]],
-      email: ['', [required, email]],
-      checkbox: ['']
+      emailAddress: ['', [required, email]]
     })
   }
 
@@ -21,7 +20,7 @@ export class FormBuilderService {
     const { required, maxLength, minLength, email } = Validators;
     return this.formBuilder.group({
       name: ['', [required, maxLength(64), minLength(2)]],
-      email: ['', [required, email]],
+      emailAddress: ['', [required, email]],
       message: ['', [required, maxLength(1000), minLength(2)]]
     })
   }
