@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LoginRoutingModule } from './login-routing.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginRoutingModule } from './login-routing.module';
     MatIconModule,
     MatGridListModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressBarModule
   ]
 })
 export class LoginModule { }

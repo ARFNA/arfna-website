@@ -5,8 +5,8 @@
         <form [formGroup]="form">
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
-            <mat-error *ngIf="form.controls['email'].hasError"> {{ proccessErrors(form, "email", content) }}
+            <input matInput formControlName="emailAddress">
+            <mat-error *ngIf="form.controls['emailAddress'].hasError"> {{ proccessErrors(form, "emailAddress", content) }}
             </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">

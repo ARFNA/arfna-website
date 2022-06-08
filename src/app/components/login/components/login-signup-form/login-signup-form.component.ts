@@ -49,12 +49,13 @@ export class LoginSignupFormComponent implements OnInit {
 
   public signup() {
     this.toggleActive();
-    let formData: Subscriber = new Subscriber();
+    let formData: any = new Subscriber();
     Object.assign(formData, this.signupForm.value);
+    delete formData['repassword'];
 
     // check if has email
     // if none add with password
-    // if has, add password
+    // if has, add password query instead else:
     
     this.fascadeService.manageSubscriber(new MSubscriber('V1', 'ADD_SUBSCRIBER_WITH_PASSWORD', formData))
     .subscribe((response) => {
@@ -62,7 +63,7 @@ export class LoginSignupFormComponent implements OnInit {
     },
     (error: HttpErrorResponse) => {
       this.toggleActive();
-      if (!error.status) {
+      if (!error.error.response.messages[0].message) {
         this.errorMessage = 'Something went wrong. Please refresh and try again.'
       } else {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;

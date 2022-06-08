@@ -20,6 +20,14 @@ const routes: Routes = [
     }, path: "login"
   },
   {
+    loadChildren: () => {
+      return import("./components/blog/blog.module")
+      .then((m) => {
+        return m.BlogModule;
+      });
+    }, path: "blog"
+  },
+  {
     path: "404",
     component: NotFoundComponent
   },

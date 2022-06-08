@@ -19,8 +19,7 @@ export class LoginService {
   }
 
   public urlBuilder(url: string): string {
-    //return `${environment.api_prefix}/${url}`;
-    return `/api/${url}`;
+    return `${environment.api_prefix}${url}`;
   }
 
   public mSubscriber(mSubscriber: MSubscriber) {

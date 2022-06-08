@@ -4,6 +4,6 @@
 
 export const environment = {
   production: false,
-  api_prefix: 'http://localhost:8080/arfna/api'
+  api_prefix: '/api'
 };
 
