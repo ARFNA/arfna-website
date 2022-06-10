@@ -47,19 +47,23 @@ export class LoginSignupFormComponent implements OnInit {
     this.content.set('passLength', Errors.PASSCONFIRM);
   }
 
-  public signup() {
+  public onSubmit() {
     this.toggleActive();
+    let method: string;
     let formData: any = new Subscriber();
+    let emailData: any = new Subscriber();
     Object.assign(formData, this.signupForm.value);
     delete formData['repassword'];
+    emailData.emailAddress = formData.emailAddress;
 
-    // check if has email
-    // if none add with password
-    // if has, add password query instead else:
-    
-    this.fascadeService.manageSubscriber(new MSubscriber('V1', 'ADD_SUBSCRIBER_WITH_PASSWORD', formData))
-    .subscribe((response) => {
-      //redirect and change navbar state from login to logout
+    this.fascadeService.manageSubscriber(new MSubscriber('V1', 'CHECK_TYPE_FROM_EMAIL', emailData))
+    .subscribe((response: any) => {
+      if (response.response.subscriberType === 'NAME_AND_EMAIL') {
+        method = 'ADD_PASSWORD';
+      } else {
+        method = 'ADD_SUBSCRIBER_WITH_PASSWORD';
+      }
+      this.signUp(method, formData);
     },
     (error: HttpErrorResponse) => {
       this.toggleActive();
@@ -70,6 +74,22 @@ export class LoginSignupFormComponent implements OnInit {
       }
     });
     
+  }
+
+  public signUp(method: string, formData: Subscriber) {
+    this.fascadeService.manageSubscriber(new MSubscriber('V1', method, formData))
+    .subscribe((response) => {
+      this.toggleActive();
+      //redirect and change navbar state from login to logout
+    },
+    (error: HttpErrorResponse) => {
+      this.toggleActive();
+      if (!error.error.response.messages[0].message) {
+        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+      } else {
+        this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
+      }
+    });
   }
 
   public login() {
@@ -92,7 +112,7 @@ export class LoginSignupFormComponent implements OnInit {
     
   }
 
-  public toggleActive(){
+  public toggleActive() {
     this.active = !this.active;
   }
 

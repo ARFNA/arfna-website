@@ -79,7 +79,7 @@
               </mat-form-field>
               <mat-error style="text-align:center;" *ngIf="signupForm.hasError('passwordConfirmation')"> {{ content.get('passMismatch') }}
               </mat-error>
-              <button (click)="signup()"
+              <button (click)="onSubmit()"
                 mat-raised-button
                 color="primary"
                 class="login-button">
