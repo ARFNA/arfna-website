@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MSubscriber } from 'src/app/models/m-subscriber';
 import { FormBuilderService } from './form-builder.service';
 import { FormFieldsService } from './form-fields.service';
@@ -12,7 +13,7 @@ export class FascadeService {
 
   constructor(private formBuilder: FormBuilderService,
     private formFieldsService: FormFieldsService,
-    private loginService: LoginService) { }
+    private loginService: LoginService, private router: Router) { }
 
   public buildLoginForm(): FormGroup {
     return this.formBuilder.buildLoginFormGroup();
@@ -28,5 +29,9 @@ export class FascadeService {
   
   public manageSubscriber(mSubscriber: MSubscriber) {
     return this.loginService.mSubscriber(mSubscriber);
+  }
+
+  public redirect(url: string) {
+    this.router.navigateByUrl(url);
   }
 }

@@ -11,13 +11,13 @@ export class FormFieldsService {
   public processFieldValidationMessage(form: any, fieldName: string, content: Map<string, string>): string | undefined {
     const { errors, value } = form.controls[fieldName] || {};
     if (errors) {
-      const { required, maxlength, minlength, email } = errors;
+      const { required, maxlength, minlength, pattern } = errors;
       return (
         required ? content.get('requiredTxt') :
           maxlength ? content.get('maxLengthTxt') :
             minlength && value.length < 2 ? `${content.get('minLengthTxt')} 2` :
               minlength && value.length < 12 ? `${content.get('minLengthTxt')} 12` :
-              email ? content.get('emailPatternTxt') :
+              pattern ? content.get('emailPatternTxt') :
                   ''
       );
     }

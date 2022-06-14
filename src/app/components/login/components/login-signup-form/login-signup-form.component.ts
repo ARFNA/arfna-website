@@ -13,10 +13,10 @@ import { Subscriber } from 'src/app/models/subscriber';
 })
 export class LoginSignupFormComponent implements OnInit {
 
-   /**
-    * Content for the newsletter messaging
-    */
-    public content: Map<string, string> = new Map<string, string>();
+  /**
+   * Content for the newsletter messaging
+   */
+  public content: Map<string, string> = new Map<string, string>();
 
   public loginForm!: FormGroup;
 
@@ -80,7 +80,7 @@ export class LoginSignupFormComponent implements OnInit {
     this.fascadeService.manageSubscriber(new MSubscriber('V1', method, formData))
     .subscribe((response) => {
       this.toggleActive();
-      //redirect and change navbar state from login to logout
+      this.fascadeService.redirect('/blog');
     },
     (error: HttpErrorResponse) => {
       this.toggleActive();
@@ -99,7 +99,8 @@ export class LoginSignupFormComponent implements OnInit {
     
     this.fascadeService.manageSubscriber(new MSubscriber('V1', 'LOGIN', formData))
     .subscribe((response) => {
-      //redirect and change navbar state from login to logout
+      this.toggleActive();
+      this.fascadeService.redirect('/blog');
     },
     (error: HttpErrorResponse) => {
       this.toggleActive();
