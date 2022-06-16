@@ -12,6 +12,8 @@ export class BlogPageComponent implements OnInit {
 
   public loaded: boolean = false;
 
+  public formToggle: boolean = false;
+
   constructor(private fascade: FacsadeService) { }
 
   ngOnInit(): void {
@@ -26,6 +28,10 @@ export class BlogPageComponent implements OnInit {
         }
         this.loaded = true;
       });
+  }
+
+  public toggleForm() {
+    this.formToggle = !this.formToggle;
   }
 
 }

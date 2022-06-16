@@ -1,0 +1,7 @@
+mat-card {
+    margin: 10px;
+}
+
+mat-card > *:not(:first-child) {
+    margin-top: 10px;
+}
