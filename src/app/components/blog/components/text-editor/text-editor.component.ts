@@ -22,6 +22,10 @@ export class TextEditorComponent implements OnInit {
     placeholder: 'Enter text here...',
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Calibri',
+    toolbarHiddenButtons: [
+      [],
+      ['insertImage', 'customClasses', 'insertVideo', 'toggleEditorMode']
+    ]
   };
 
 

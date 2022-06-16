@@ -7,6 +7,9 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { NewPostFormComponent } from './components/new-post-form/new-post-form.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -21,7 +24,10 @@ import { NewPostFormComponent } from './components/new-post-form/new-post-form.c
     CommonModule,
     HttpClientModule,
     AngularEditorModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    MatButtonModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ]
 })
 export class BlogModule { }
