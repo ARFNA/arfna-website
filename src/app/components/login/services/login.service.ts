@@ -13,7 +13,7 @@ export class LoginService {
   public httpOptions() {
     return {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type':  'text/json'
       })
     };
   }
