@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { FascadeService } from 'src/app/services/fascade.service';
@@ -10,6 +11,7 @@ describe('NewsletterFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
       declarations: [ NewsletterFormComponent ],
       providers: [FascadeService, FormBuilder]
     })

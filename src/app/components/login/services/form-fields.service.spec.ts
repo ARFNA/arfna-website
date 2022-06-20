@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { FormFieldsService } from './form-fields.service';
@@ -6,7 +7,9 @@ describe('FormFieldsService', () => {
   let service: FormFieldsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule]
+    });
     service = TestBed.inject(FormFieldsService);
   });
 

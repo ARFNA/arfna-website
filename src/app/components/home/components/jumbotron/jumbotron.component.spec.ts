@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -15,7 +16,7 @@ describe('JumbotronComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ JumbotronComponent ],
       providers: [FascadeService, NavbarService],
-      imports: [RouterTestingModule.withRoutes([])]
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([])]
     })
     .compileComponents();
   });

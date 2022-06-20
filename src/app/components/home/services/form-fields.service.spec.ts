@@ -8,10 +8,10 @@ describe('FormFieldsService', () => {
   let formbuilder: FormBuilder = new FormBuilder();
 
   /** Test Set Up */
-  const { required, maxLength, minLength, email, min } = Validators;
+  const { required, maxLength, minLength, pattern, min } = Validators;
   let form: FormGroup = formbuilder.group({
     name: ['', [required, maxLength(64), minLength(2)]],
-    email: ['', [required, email]],
+    email: ['', [required, pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     message: ['', [required, maxLength(1000), minLength(2)]],
     number: ['', [min(2)]]
   })
@@ -32,7 +32,7 @@ describe('FormFieldsService', () => {
 
   it('should return null when cant find field', () => {
     let message = service.processFieldValidationMessage(form, '', content);
-    expect(message).toEqual(null);
+    expect(message).toEqual('');
   });
 
   it('should return required', () => {
@@ -42,7 +42,7 @@ describe('FormFieldsService', () => {
   });
 
   it('should return email', () => {
-    form.controls['email'].setValue('not an email');
+    form.controls['email'].setValue('not an email@ not a link');
     let message = service.processFieldValidationMessage(form, 'email', content);
     expect(message).toEqual('email');
   });
@@ -62,12 +62,12 @@ describe('FormFieldsService', () => {
   it('should not return an error message', () => {
     form.controls['message'].setValue('Hi!');
     let message = service.processFieldValidationMessage(form, 'message', content);
-    expect(message).toEqual(null);
+    expect(message).toEqual('');
   });
 
   it('should not return an error message for unaddressed errors', () => {
     form.controls['number'].setValue(1);
     let message = service.processFieldValidationMessage(form, 'number', content);
-    expect(message).toEqual(null);
+    expect(message).toEqual('');
   });
 });
