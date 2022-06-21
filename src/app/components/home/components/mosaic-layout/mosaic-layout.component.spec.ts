@@ -4,6 +4,7 @@ import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { FascadeService } from 'src/app/services/fascade.service';
 import { MosaicLayoutComponent } from './mosaic-layout.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MosaicLayoutComponent', () => {
   let component: MosaicLayoutComponent;
@@ -13,7 +14,7 @@ describe('MosaicLayoutComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ MosaicLayoutComponent, ModalComponent],
       providers: [FascadeService, NavbarService],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule, HttpClientTestingModule]
     })
     .compileComponents();
   });

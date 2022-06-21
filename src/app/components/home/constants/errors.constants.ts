@@ -9,5 +9,9 @@ export class Errors {
     public static readonly MINLENGTH: string = 'Input must be atleast two characters';
 
     public static readonly MAXLENGTH1000: string = 'Input exceeded 1000 characters';
+
+    public static readonly PASSCONFIRM: string = 'Your passwords do not match, please retype to try again.';
+
+    public static readonly GENERIC: string = 'Something went wrong. Please refresh and try again.';
     
 }

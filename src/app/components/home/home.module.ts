@@ -26,6 +26,8 @@ import { DonateButtonComponent } from './components/donate-button/donate-button.
 import { HeaderWithDividerComponent } from './components/header-with-divider/header-with-divider.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from '../modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { ModalComponent } from '../modal/modal.component';
     MatCheckboxModule,
     MatIconModule,
     MatGridListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatProgressBarModule
   ]
 })
 export class HomeModule { }
