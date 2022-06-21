@@ -67,8 +67,8 @@ export class LoginSignupFormComponent implements OnInit {
     },
     (error: HttpErrorResponse) => {
       this.toggleActive();
-      if (error.error.response.messages !== undefined) {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+      if ('response' in error.error) {
+        this.errorMessage = Errors.GENERIC;
       } else {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
       }
@@ -86,7 +86,7 @@ export class LoginSignupFormComponent implements OnInit {
       if ('response' in error.error) {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
       } else {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+        this.errorMessage = Errors.GENERIC;
       }
     });
   }
@@ -105,7 +105,7 @@ export class LoginSignupFormComponent implements OnInit {
       if ('response' in error.error) {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
       } else {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
+        this.errorMessage = Errors.GENERIC;
       }
     });
     

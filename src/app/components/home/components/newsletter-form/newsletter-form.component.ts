@@ -57,16 +57,16 @@ export class NewsletterFormComponent implements OnInit {
     Object.assign(formData, this.form.value);
     
     this.fascadeService.addSubscriber(new MSubscriber('V1', 'REGISTER', formData))
-    .subscribe((response) => {
+    .subscribe((response: any) => {
       this.toggleActive();
       this.success = true;
     },
-    (error: HttpErrorResponse) => {
+    (error: any) => {
       this.toggleActive();
-      if (!error.status) {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
-      } else {
+      if ('response' in error.error) {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
+      } else {
+        this.errorMessage = Errors.GENERIC;
       }
     });
     
