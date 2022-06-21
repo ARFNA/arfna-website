@@ -22,7 +22,7 @@ export class LoginService {
     return `${environment.api_prefix}${url}`;
   }
 
-  public mSubscriber(mSubscriber: MSubscriber) {
+  public mSubscriber(mSubscriber: MSubscriber): any {
       return this.http.post<MSubscriber>(
         this.urlBuilder('msubscriber'), mSubscriber,
         this.httpOptions());

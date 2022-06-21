@@ -38,7 +38,6 @@ describe('NewsletterFormComponent', () => {
   });
 
   it('should submit successfully', () => {
-    component.active = false;
     component.form.controls['name'].patchValue('Kay');
     component.form.controls['emailAddress'].patchValue('keolecki@gmail.com');
     const spy = spyOn(fascade, 'addSubscriber').and.callThrough().and.returnValue(of({}));

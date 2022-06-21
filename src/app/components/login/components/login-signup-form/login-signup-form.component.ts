@@ -68,9 +68,9 @@ export class LoginSignupFormComponent implements OnInit {
     (error: HttpErrorResponse) => {
       this.toggleActive();
       if ('response' in error.error) {
-        this.errorMessage = Errors.GENERIC;
-      } else {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
+      } else {
+        this.errorMessage = Errors.GENERIC;
       }
     });
     
