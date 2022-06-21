@@ -18,9 +18,13 @@
     <a mat-tab-link (click)="serveLink('/donate')" [active]="activeLink === '/donate'" aria-label="donate tab">
         <span>Donate</span>
     </a>
-    <a mat-tab-link (click)="serveLink('/login')" [active]="activeLink === '/login'" aria-label="login icon">
+    <a *ngIf="!userLoggedIn.name" mat-tab-link (click)="serveLink('/login')" [active]="activeLink === '/login'" aria-label="login icon">
         <mat-icon color="accent" class="example-icon">lock</mat-icon>
         <span>Login</span>
+    </a>
+
+    <a *ngIf="userLoggedIn.name" mat-tab-link>
+        <span>Welcome, {{userLoggedIn.name}}!</span>
     </a>
 </nav>
 <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

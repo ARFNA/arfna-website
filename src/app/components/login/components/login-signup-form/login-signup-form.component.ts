@@ -67,10 +67,10 @@ export class LoginSignupFormComponent implements OnInit {
     },
     (error: HttpErrorResponse) => {
       this.toggleActive();
-      if (!error.error.response.messages[0].message) {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
-      } else {
+      if ('response' in error.error) {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
+      } else {
+        this.errorMessage = Errors.GENERIC;
       }
     });
     
@@ -78,16 +78,15 @@ export class LoginSignupFormComponent implements OnInit {
 
   public signUp(method: string, formData: Subscriber) {
     this.fascadeService.manageSubscriber(new MSubscriber('V1', method, formData))
-    .subscribe((response) => {
-      this.toggleActive();
-      this.fascadeService.redirect('/blog');
+    .subscribe((response: any) => {
+        this.fascadeService.redirect('/blog');
     },
-    (error: HttpErrorResponse) => {
+    (error: any) => {
       this.toggleActive();
-      if (!error.error.response.messages[0].message) {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
-      } else {
+      if ('response' in error.error) {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
+      } else {
+        this.errorMessage = Errors.GENERIC;
       }
     });
   }
@@ -98,16 +97,15 @@ export class LoginSignupFormComponent implements OnInit {
     Object.assign(formData, this.loginForm.value);
     
     this.fascadeService.manageSubscriber(new MSubscriber('V1', 'LOGIN', formData))
-    .subscribe((response) => {
-      this.toggleActive();
+    .subscribe((response: any) => {
       this.fascadeService.redirect('/blog');
     },
-    (error: HttpErrorResponse) => {
+    (error: any) => {
       this.toggleActive();
-      if (!error.status) {
-        this.errorMessage = 'Something went wrong. Please refresh and try again.'
-      } else {
+      if ('response' in error.error) {
         this.errorMessage = `Error: ${error.error.response.messages[0].message}`;
+      } else {
+        this.errorMessage = Errors.GENERIC;
       }
     });
     

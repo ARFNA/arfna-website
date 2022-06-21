@@ -26,6 +26,7 @@
                     <mat-error *ngIf="loginForm.controls['password'].hasError"> {{ proccessErrors(loginForm, "password", content) }}
                     </mat-error>
                 </mat-form-field>
+                <mat-error style="text-align:center;">{{ errorMessage }}</mat-error>
                 <button (click)="login()"
                   mat-raised-button
                   color="primary"
@@ -79,6 +80,7 @@
               </mat-form-field>
               <mat-error style="text-align:center;" *ngIf="signupForm.hasError('passwordConfirmation')"> {{ content.get('passMismatch') }}
               </mat-error>
+              <mat-error style="text-align:center;">{{ errorMessage }}</mat-error>
               <button (click)="onSubmit()"
                 mat-raised-button
                 color="primary"

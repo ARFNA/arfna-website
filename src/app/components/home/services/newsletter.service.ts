@@ -19,11 +19,10 @@ export class NewsletterService {
   }
 
   public urlBuilder(url: string): string {
-    //return `${environment.api_prefix}/${url}`;
     return `${environment.api_prefix}${url}`;
   }
 
-  public mSubscriber(mSubscriber: MSubscriber) {
+  public mSubscriber(mSubscriber: MSubscriber): any {
       return this.http.post<MSubscriber>(
         this.urlBuilder('msubscriber'), mSubscriber,
         this.httpOptions());

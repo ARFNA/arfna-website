@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 
@@ -8,7 +9,8 @@ describe('FormBuilderService', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [FormBuilder]
+      providers: [FormBuilder],
+      imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(FormBuilderService);
   });

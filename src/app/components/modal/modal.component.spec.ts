@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarService } from 'src/app/services/navbar.service';
@@ -12,8 +14,8 @@ describe('ModalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ModalComponent ],
-      providers: [FascadeService, NavbarService],
-      imports: [RouterTestingModule]
+      providers: [FascadeService, NavbarService, HttpClient],
+      imports: [RouterTestingModule, HttpClientTestingModule]
     })
     .compileComponents();
   });

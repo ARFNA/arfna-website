@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment';
-import { MSubscriber } from '../../../models/m-subscriber';
+import { environment } from 'src/environments/environment';
+import { RSubscriber } from '../models/rsubscriber';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class TokenService {
 
   constructor(private http: HttpClient) { }
 
@@ -22,10 +22,9 @@ export class LoginService {
     return `${environment.api_prefix}${url}`;
   }
 
-  public mSubscriber(mSubscriber: MSubscriber): any {
-      return this.http.post<MSubscriber>(
-        this.urlBuilder('msubscriber'), mSubscriber,
+  public rSubscriber(rSubscriber: RSubscriber) {
+      return this.http.post<RSubscriber>(
+        this.urlBuilder('rsubscriber'), rSubscriber,
         this.httpOptions());
   }
-
 }
