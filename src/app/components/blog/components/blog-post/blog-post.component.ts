@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Author } from 'src/app/models/author';
 import { Post } from 'src/app/models/post';
 
 @Component({
@@ -8,7 +9,7 @@ import { Post } from 'src/app/models/post';
 })
 export class BlogPostComponent implements OnInit {
 
-  @Input() public post!: Post;
+  @Input() public post: Post = new Post('', '', new Author());
   
   constructor() { }
 

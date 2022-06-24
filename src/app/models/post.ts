@@ -10,4 +10,12 @@ export class Post {
     public isPublished!: boolean;
     public createdAt!: string;
     public lastUpdate!: string;
+
+    constructor(title: string,
+        markdown: string,
+        author: Author) {
+            this.title = title;
+            this.markdown = markdown;
+            this.author = author;
+    }
 }
