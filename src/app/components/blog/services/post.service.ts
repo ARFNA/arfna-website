@@ -29,4 +29,13 @@ export class PostService {
       },
         this.httpOptions());
   }
+
+  public uPost() {
+    return this.http.post(
+      this.urlBuilder('mpost'), {
+          'version': 'V1',
+          'mutation': 'GET_FOR_SUBSCRIBER'
+    },
+      this.httpOptions());
+  }
 }

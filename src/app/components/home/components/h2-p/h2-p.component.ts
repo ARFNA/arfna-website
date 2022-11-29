@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class H2PComponent {
 
   @Input() header: string = '';
-  @Input() body: string = '';
+  @Input() bodies: string[] = [];
 
   constructor() { }
 

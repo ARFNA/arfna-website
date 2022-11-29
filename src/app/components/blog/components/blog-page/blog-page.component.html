@@ -1,18 +1,6 @@
 <div class="background">
     <div class="container">
         <div class="toolbar">
-            <button mat-raised-button color="primary"
-                (click)="toggleForm()">
-                <mat-icon>add</mat-icon>
-            </button>
-            <button mat-raised-button color="primary">
-                <mat-icon>settings</mat-icon>
-            </button>
-        </div>
-        <div *ngIf="formToggle">
-            <app-new-post-form>   
-            </app-new-post-form>
-        </div>
         <mat-spinner *ngIf="!loaded"></mat-spinner>
         <div *ngFor="let post of posts">
             <app-blog-post [post]="post">

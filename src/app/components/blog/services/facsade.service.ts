@@ -5,10 +5,15 @@ import { PostService } from './post.service';
   providedIn: 'root'
 })
 export class FacsadeService {
+  
 
   constructor(private postService: PostService ) { }
 
   public getAllPosts() {
     return this.postService.gPost();
+  }
+
+  public getMyPosts() {
+    return this.postService.uPost();
   }
 }

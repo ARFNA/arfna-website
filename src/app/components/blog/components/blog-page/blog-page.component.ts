@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FacsadeService } from '../../services/facsade.service';
 
 @Component({
@@ -8,11 +8,11 @@ import { FacsadeService } from '../../services/facsade.service';
 })
 export class BlogPageComponent implements OnInit {
 
+  @Input() public loadFilter: string = '';
+
   public posts: any[] = [];
 
   public loaded: boolean = false;
-
-  public formToggle: boolean = false;
 
   constructor(private fascade: FacsadeService) { }
 
@@ -21,17 +21,43 @@ export class BlogPageComponent implements OnInit {
   }
 
   public loadPosts() {
-    this.fascade.getAllPosts().subscribe(
-      (response: any) => {
-        if (response.response.posts.length) {
-          this.posts = response.response.posts;
-        }
-        this.loaded = true;
-      });
-  }
+    switch(this.loadFilter) {
+      case '': {
+        this.fascade.getAllPosts().subscribe(
+          (response: any) => {
+            if (response.response.posts.length) {
+              this.posts = response.response.posts;
+            }
+            this.loaded = true;
+          });
+          break;
+      }
+      case 'myPosts': {
+        this.fascade.getMyPosts().subscribe(
+          (response: any) => {
+            if (response.response.allPosts.length) {
+              this.posts = response.response.allPosts.filter(
+                (post: any) => post.isSubmitted === true);
+            }
+            this.loaded = true;
+          });
+          break;
+      }
 
-  public toggleForm() {
-    this.formToggle = !this.formToggle;
+      case 'draftPosts': {
+        this.fascade.getMyPosts().subscribe(
+          (response: any) => {
+            if (response.response.allPosts.length) {
+              this.posts = response.response.allPosts.filter(
+                (post: any) => post.isSubmitted === false);
+            }
+            this.loaded = true;
+          });
+          break;
+      }
+        
+    }
   }
-
+    
 }
+

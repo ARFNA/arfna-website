@@ -9,9 +9,9 @@ export class TextSectionComponent {
 
   @Input() public section: string='';
   @Input() public header1: string='';
-  @Input() public body1: string='';
+  @Input() public body1: string[]=[];
   @Input() public header2: string='';
-  @Input() public body2: string='';
+  @Input() public body2: string[]=[];
 
   constructor() { }
 

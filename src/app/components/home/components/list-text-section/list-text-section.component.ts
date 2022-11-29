@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListTextSectionComponent {
 
   @Input() header: string = '';
-  @Input() body: string = '';
+  @Input() body: string[] = [];
   @Input() email: string = '';
   @Input() phone: string = '';
   @Input() address: string = '';

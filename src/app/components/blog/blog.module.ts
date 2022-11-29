@@ -11,6 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
+import { MainDashboardComponent } from './components/main-dashoboard/main-dashboard.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -19,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     TextEditorComponent,
     BlogPageComponent,
     BlogPostComponent,
-    NewPostFormComponent
+    NewPostFormComponent,
+    MainDashboardComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ]
 })
 export class BlogModule { }
