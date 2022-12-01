@@ -13,6 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BlogModule } from './components/blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HomeModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    BlogModule
   ],
   providers: [ HttpClientModule ],
   bootstrap: [AppComponent]

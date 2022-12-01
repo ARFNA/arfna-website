@@ -1,0 +1,10 @@
+<div class="background">
+    <div class="container">
+        <div class="toolbar">
+        <mat-spinner *ngIf="!loaded"></mat-spinner>
+        <div *ngFor="let post of posts">
+            <app-blog-post [post]="post">
+            </app-blog-post>
+        </div>
+    </div>
+</div>
