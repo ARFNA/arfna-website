@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
     this.constantMap.set('body1', HomeConstants.HOME_BODY1);
     this.constantMap.set('subheader2', HomeConstants.HOME_HEADER2);
     this.constantMap.set('body2', HomeConstants.HOME_BODY2);
+    this.constantMap.set('subheader3', HomeConstants.HOME_HEADER3);
+    this.constantMap.set('body3', HomeConstants.HOME_BODY3);
+    this.constantMap.set('subheader4', HomeConstants.HOME_HEADER4);
+    this.constantMap.set('body4', HomeConstants.HOME_BODY4);
   }
 
 }

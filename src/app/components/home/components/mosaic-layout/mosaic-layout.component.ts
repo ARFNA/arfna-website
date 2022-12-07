@@ -20,19 +20,19 @@ export class MosaicLayoutComponent implements DoCheck {
   /** Inputs for content passed from parent component */
 
   @Input() public header1: string | undefined = '';
-  @Input() public body1: string | undefined = '';
+  @Input() public body1: string[] | undefined = [];
   @Input() public modal1: string | undefined = '';
 
   @Input() public header2: string | undefined = '';
-  @Input() public body2: string | undefined = '';
+  @Input() public body2: string[] | undefined = [];
   @Input() public modal2: string | undefined = '';
 
   @Input() public header3: string | undefined = '';
-  @Input() public body3: string | undefined = '';
+  @Input() public body3: string[] | undefined = [];
   @Input() public modal3: string | undefined = '';
 
   @Input() public header4: string | undefined = '';
-  @Input() public body4: string | undefined = '';
+  @Input() public body4: string[] | undefined = [];
   @Input() public modal4: string | undefined = '';
 
   constructor(private fascadeService: FascadeService) { }
