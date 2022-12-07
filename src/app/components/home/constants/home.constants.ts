@@ -88,40 +88,44 @@ export class HomeConstants {
 
     /** Contact Us Page Constants */
 
-    public static readonly CONTACT_TITLE: string = 'Contact Us';
+    public static readonly CONTACT_TITLE: string = 'ARFNA';
 
-    public static readonly CONTACT_SUBTITLE: string = 'ARFNA would love to hear from you!';
+    public static readonly CONTACT_SUBTITLE: string = 'We would love to hear from you!';
 
-    public static readonly CONTACT_HEADER: string = 'Subheader';
+    public static readonly CONTACT_HEADER: string = 'Contact Us';
 
-    public static readonly CONTACT_BODY: string[] = ['Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra justo nec ultrices dui. Non curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus iaculis urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper morbi tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit sed vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis posuere morbi. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus. Lectus magna fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan lacus vel.'];
+    public static readonly CONTACT_BODY: string[] = [
+        'Feel free to reach out with ideas, comments, or just to say hi! We are always happy to chat and learn more about how we can help you.'
+    ];
 
-    public static readonly CONTACT_EMAIL: string = 'rosh@sharma.com';
+    public static readonly CONTACT_EMAIL: string = 'info@arfna.org';
 
-    public static readonly CONTACT_PHONE: string = '+1 252-252-2525';
+    public static readonly CONTACT_PHONE: string = '+1 704-816-0243';
 
-    public static readonly CONTACT_ADDRESS: string = '252 Tattersall Drive, Lone Tree, CO 00049';
+    public static readonly CONTACT_ADDRESS: string = 'Nope';
 
     /** Donation page constants */
 
-    public static readonly DONATE_TITLE: string = 'Donate to ARFNA';
+    public static readonly DONATE_TITLE: string = 'ARFNA';
 
-    public static readonly DONATE_SUBTITLE: string = 'Donate subtext here.';
+    public static readonly DONATE_SUBTITLE: string = 'Donate and help the cause!';
 
     public static readonly DONATE_CAROUSEL: string[] = ['../../../../assets/rosh.jpg','../../../../assets/epipen.jpg','../../../../assets/nuts.jpg'];
 
-    public static readonly DONATE_SECTION1: string = 'Section Header';
+    public static readonly DONATE_SECTION1: string = 'Donate Here!';
 
-    public static readonly DONATE_SECTION2: string = 'Section Header';
+    public static readonly DONATE_SECTION2: string = '';
 
-    public static readonly DONATE_HEADER1: string = 'Subheader';
+    public static readonly DONATE_HEADER1: string = 'Thank You';
 
-    public static readonly DONATE_BODY1: string[] = ['Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra justo nec ultrices dui. Non curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus iaculis urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper morbi tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit sed vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis posuere morbi. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus. Lectus magna fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan lacus vel.'];
+    public static readonly DONATE_BODY1: string[] = [
+        'Thank you so much for considering donating! We use PayPal for accepting payments, so everything is secure. 100% of donations will go towards seed funding or the immunotherapy fund.',
+        'If you have a special request of how your gift is used, or if you have any additional questions, don\'t hesistate to contact us and learn more!'
+    ];
 
-    public static readonly DONATE_HEADER2: string = 'Subheader';
+    public static readonly DONATE_HEADER2: string = '';
 
-    public static readonly DONATE_BODY2: string[] = ['Morbi leo urna molestie at elementum eu facilisis. Mattis rhoncus urna neque viverra justo nec ultrices dui. Non curabitur gravida arcu ac tortor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Blandit aliquam etiam erat velit scelerisque in dictum non. Facilisi morbi tempus iaculis urna id volutpat lacus. At elementum eu facilisis sed odio morbi quis. Ullamcorper velit sed ullamcorper morbi tincidunt. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Integer quis auctor elit sed vulputate mi sit. Nibh cras pulvinar mattis nunc sed blandit. Egestas maecenas pharetra convallis posuere morbi. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Mollis nunc sed id semper risus. Lectus magna fringilla urna porttitor rhoncus dolor purus non enim. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Tincidunt lobortis feugiat vivamus at augue. Vel risus commodo viverra maecenas accumsan lacus vel.'];
-
+    public static readonly DONATE_BODY2: string[] = [];
 
     /** About page constants */
 
@@ -131,7 +135,7 @@ export class HomeConstants {
     
     public static readonly ABOUT_CAROUSEL: string[] = ['../../../../assets/rosh.jpg','../../../../assets/epipen.jpg','../../../../assets/nuts.jpg'];
 
-    public static readonly ABOUT_SECTION: string = '';
+    public static readonly ABOUT_SECTION: string = 'About Us';
 
     public static readonly ABOUT_HEADER1: string = '';
 
@@ -143,14 +147,14 @@ export class HomeConstants {
 
     public static readonly ABOUT_BODY2: string[] = [
         'Raise money to seed fund new research in nut allergies',
-        'Create a fund to help people access OIT who can’t otherwise afford it',
+        'Create a fund to help people access OIT who can\'t otherwise afford it',
         'Raise awareness about nut allergies'
     ];
 
     public static readonly ABOUT_HEADER3: string = "About Roshnee";
 
     public static readonly ABOUT_BODY3: string[] = [
-        'I was diagnosed with severe peanut and tree nut allergy when I was 2 years old, so for all of my life, I’ve been used to avoiding anything with peanuts and nuts. With the severity of the allergy growing up, and the lack of awareness, I struggled with bullying and getting involved in a variety of social situations.',
+        'I was diagnosed with severe peanut and tree nut allergy when I was 2 years old, so for all of my life, I\'ve been used to avoiding anything with peanuts and nuts. With the severity of the allergy growing up, and the lack of awareness, I struggled with bullying and getting involved in a variety of social situations.',
         'When I got to college, I was a student-athlete, and really worked hard there to find nutritional options that would support my allergy. However, even there, travelling with a group upped anxiety with travelling and making sure I was getting food to eat. It ended up resulting in me packing my own lunches for a tournament for travel.',
         'While I was in university, I got involved with the food allergy research team, and worked hard to fundraise and get seed fund new projects pertaining to peanut and nut allergies.',
         'In early 2022, I met with a doctor to get new epipens after the pandemic, who then offered to treat my allergy using OIT! This was such an incredible opportunity, and I’m so grateful I was able to go through the process. It has been so life-changing, and I want any family or person struggling with a serious allergy to have the same access to this treatment that I did.',

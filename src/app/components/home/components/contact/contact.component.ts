@@ -24,7 +24,6 @@ export class ContactComponent implements OnInit {
     this.constantMap.set('body', HomeConstants.CONTACT_BODY);
     this.constantMap.set('email', HomeConstants.CONTACT_EMAIL);
     this.constantMap.set('phone', HomeConstants.CONTACT_PHONE);
-    this.constantMap.set('address', HomeConstants.CONTACT_ADDRESS);
   }
 
 }
