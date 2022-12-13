@@ -24,5 +24,7 @@ export class AboutComponent implements OnInit {
     this.constantMap.set('body1', HomeConstants.ABOUT_BODY1);
     this.constantMap.set('subheader2', HomeConstants.ABOUT_HEADER2);
     this.constantMap.set('body2', HomeConstants.ABOUT_BODY2);
+    this.constantMap.set('subheader3', HomeConstants.ABOUT_HEADER3);
+    this.constantMap.set('body3', HomeConstants.ABOUT_BODY3)
   }
 }

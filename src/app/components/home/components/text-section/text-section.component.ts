@@ -12,6 +12,10 @@ export class TextSectionComponent {
   @Input() public body1: string[]=[];
   @Input() public header2: string='';
   @Input() public body2: string[]=[];
+  @Input() public header3: string='';
+  @Input() public body3: string[]=[];
+  @Input() public header4: string='';
+  @Input() public body4: string[]=[];
 
   constructor() { }
 

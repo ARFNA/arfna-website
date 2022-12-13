@@ -8,7 +8,7 @@ import { HomeConstants } from '../../constants/home.constants';
 })
 export class AllergyComponent implements OnInit {
 
-  public constantMap: Map<string, string> = new Map();
+  public constantMap: Map<string, any> = new Map();
 
   constructor() { }
 
