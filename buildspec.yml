@@ -5,8 +5,9 @@ phases:
         commands:
             - echo Installing source NPM dependencies...
             - echo npm version is $(npm -v)
-            - npm install --force
             - npm install -g @angular/cli@14.0.0 --force
+            - npm install --force
+            
     build:
         commands:
             - echo Build started on `date`
