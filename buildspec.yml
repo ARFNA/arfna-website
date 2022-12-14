@@ -1,18 +1,16 @@
 version: 0.2
-env:
-    variables:
-        CACHE_CONTROL: "86400"
-        BUILD_ENV: "prod"
+
 phases:
     install:
         commands:
             - echo Installing source NPM dependencies...
+            - echo npm version is $(npm -v)
             - npm install --force
-            - npm install -g @angular/cli@13.0.4 --force
+            - npm install -g @angular/cli@14.0.0 --force
     build:
         commands:
             - echo Build started on `date`
-            - ng build --${BUILD_ENV}
+            - ng build
 
 artifacts:
     files:
