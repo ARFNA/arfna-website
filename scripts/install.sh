@@ -1,7 +1,7 @@
 echo "Installing Required Commands"
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-sh . ~/.nvm/nvm.sh
+. ~/.nvm/nvm.sh
 echo "Activiated nvm"
 echo "Installing npm"
 nvm install 16
