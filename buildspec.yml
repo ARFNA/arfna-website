@@ -14,6 +14,8 @@ phases:
             - ng build
             - cp appspec.yml dist/appspec.yml
             - cp scripts/startup.sh dist/scripts/startup.sh
+            - cp scripts/shutdown.sh dist/scripts/shutdown.sh
+            - cp scripts/validate.sh dist/scripts/validate.sh
 
 artifacts:
     files:
