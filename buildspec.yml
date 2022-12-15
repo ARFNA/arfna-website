@@ -18,4 +18,4 @@ artifacts:
         - '**/*'
         - 'appspec.yml'
     base-directory: 'dist*'
-    discard-paths: yes
+    discard-paths: no
