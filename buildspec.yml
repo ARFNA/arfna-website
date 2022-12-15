@@ -12,7 +12,7 @@ phases:
         commands:
             - echo Build started on `date`
             - echo First showing output of ng update
-            - ng update
+            - ng update --from 13.0.4 --to 14.0.0
             - ng build
 
 artifacts:
