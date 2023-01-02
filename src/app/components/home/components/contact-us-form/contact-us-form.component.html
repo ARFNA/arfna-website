@@ -2,7 +2,7 @@
     <mat-icon color="primary">mail_outline</mat-icon>
     <h1 class="mat-display-1">Contact Us</h1>
     <mat-card>
-        <form [formGroup]="form">
+        <form [formGroup]="form" *ngIf="!success">
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput formControlName="emailAddress">
@@ -21,7 +21,13 @@
             <mat-error *ngIf="form.controls['message'].hasError"> {{ proccessErrors(form, "message", content) }}
             </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary">Submit</button>
+        <button mat-raised-button (click)="submit()" color="primary">Submit</button>
+        <mat-error *ngIf="errorMessage"> {{ errorMessage }} </mat-error>
         </form>
+        <mat-progress-bar *ngIf="active" mode="indeterminate"></mat-progress-bar>
+        <div *ngIf="success">
+            <h3>Someone will reach out shortly!</h3>
+            <mat-icon color="primary">check_circle</mat-icon>
+        </div>
     </mat-card>
 </div>
