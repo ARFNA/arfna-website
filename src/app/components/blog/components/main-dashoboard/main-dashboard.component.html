@@ -13,7 +13,7 @@
           <a mat-list-item (click)="changeState('drafts')">Drafts</a>
           <a mat-list-item (click)="changeState('myPosts')">My Posts</a>
           <a mat-list-item *ngIf="userLoggedIn.role === 'maint'" (click)="changeState('accept')">Approve</a>
-          <a mat-list-item *ngIf="userLoggedIn.role === 'main'" (click)="changeState('publish')">Approve</a>
+          <a mat-list-item *ngIf="userLoggedIn.role === 'admin'" (click)="changeState('publish')">Approve</a>
           <a mat-list-item >Logout</a>
         </mat-nav-list>
       </mat-sidenav>
@@ -37,7 +37,7 @@
         </div>
 
         <div *ngIf="currentState == 'publish' &&
-          userLoggedIn.role === 'main'">
+          userLoggedIn.role === 'admin'">
           <app-blog-page [loadFilter]="'publish'"></app-blog-page>
         </div>
         

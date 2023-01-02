@@ -56,7 +56,7 @@ export class BlogPageComponent implements OnInit {
           break;
       }
 
-      case 'draftPosts': {
+      case 'accept': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
             if (response.response.allPosts.length) {
@@ -68,7 +68,7 @@ export class BlogPageComponent implements OnInit {
           break;
       }
 
-      case 'draftPosts': {
+      case 'publish': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
             if (response.response.allPosts.length) {
