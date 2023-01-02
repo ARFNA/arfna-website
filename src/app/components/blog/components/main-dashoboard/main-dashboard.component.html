@@ -1,7 +1,7 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="example-toolbar">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">{{userLoggedIn.name}} - {{userLoggedIn.role}}</h1>
+      <h1 class="example-app-name">Welcome, {{userLoggedIn.name}}</h1>
     </mat-toolbar>
   
     <mat-sidenav-container class="example-sidenav-container"
@@ -12,7 +12,8 @@
           <a mat-list-item (click)="changeState('newPost')">Create a Post</a>
           <a mat-list-item (click)="changeState('drafts')">Drafts</a>
           <a mat-list-item (click)="changeState('myPosts')">My Posts</a>
-          <a mat-list-item *ngIf="userLoggedIn.role === 'admin'" (click)="changeState('approve')">Approve</a>
+          <a mat-list-item *ngIf="userLoggedIn.role === 'maint'" (click)="changeState('accept')">Approve</a>
+          <a mat-list-item *ngIf="userLoggedIn.role === 'main'" (click)="changeState('publish')">Approve</a>
           <a mat-list-item >Logout</a>
         </mat-nav-list>
       </mat-sidenav>
@@ -30,9 +31,14 @@
           <app-blog-page [loadFilter]="'myPosts'"></app-blog-page>
         </div>
 
-        <div *ngIf="currentState == 'approve' &&
-          userLoggedIn.role === 'admin'">
-          <app-blog-page [loadFilter]="'approve'"></app-blog-page>
+        <div *ngIf="currentState == 'accept' &&
+          userLoggedIn.role === 'maint'">
+          <app-blog-page [loadFilter]="'accept'"></app-blog-page>
+        </div>
+
+        <div *ngIf="currentState == 'publish' &&
+          userLoggedIn.role === 'main'">
+          <app-blog-page [loadFilter]="'publish'"></app-blog-page>
         </div>
         
       </mat-sidenav-content>

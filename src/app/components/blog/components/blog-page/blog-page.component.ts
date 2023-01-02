@@ -55,6 +55,30 @@ export class BlogPageComponent implements OnInit {
           });
           break;
       }
+
+      case 'draftPosts': {
+        this.fascade.getMyPosts().subscribe(
+          (response: any) => {
+            if (response.response.allPosts.length) {
+              this.posts = response.response.allPosts.filter(
+                (post: any) => post.isSubmitted === false);
+            }
+            this.loaded = true;
+          });
+          break;
+      }
+
+      case 'draftPosts': {
+        this.fascade.getMyPosts().subscribe(
+          (response: any) => {
+            if (response.response.allPosts.length) {
+              this.posts = response.response.allPosts.filter(
+                (post: any) => post.isSubmitted === false);
+            }
+            this.loaded = true;
+          });
+          break;
+      }
         
     }
   }
