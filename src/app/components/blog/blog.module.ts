@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BlogPageSingularComponent } from './components/blog-page-singular/blog-page-singular.component';
 
 
 
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BlogPageComponent,
     BlogPostComponent,
     NewPostFormComponent,
-    MainDashboardComponent
+    MainDashboardComponent,
+    BlogPageSingularComponent
   ],
   imports: [
     CommonModule,
