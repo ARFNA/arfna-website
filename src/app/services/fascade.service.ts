@@ -44,4 +44,8 @@ export class FascadeService {
   public getUserLoggedIn(user: RSubscriber) {
     return this.token.rSubscriber(user);
   }
+
+  public logout() {
+    return this.token.logout();
+  }
 }

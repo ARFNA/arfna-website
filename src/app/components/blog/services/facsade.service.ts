@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { PostService } from './post.service';
 
@@ -7,8 +8,7 @@ import { PostService } from './post.service';
 })
 export class FacsadeService {
   
-
-  constructor(private postService: PostService ) { }
+  constructor(private postService: PostService, private router: Router ) { }
 
   public getAllPosts() {
     return this.postService.gPost();
@@ -36,6 +36,15 @@ export class FacsadeService {
 
   public publishPost(id: number) {
     return this.postService.publishPost(id);
+  }
+
+  public deletePost(id: number) {
+    return this.postService.deletePost(id);
+  }
+
+  public redirect(url: string) {
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([url]));
   }
 
 }

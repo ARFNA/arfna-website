@@ -27,4 +27,14 @@ export class TokenService {
         this.urlBuilder('rsubscriber'), rSubscriber,
         this.httpOptions());
   }
+
+  public logout() {
+    return this.http.post<any>(
+      this.urlBuilder('msubscriber'), 
+      {
+        'version': 'V1',
+        'mutation': 'LOGOUT'
+      },
+      this.httpOptions());
+  }
 }

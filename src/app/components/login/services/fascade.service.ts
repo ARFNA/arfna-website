@@ -32,6 +32,7 @@ export class FascadeService {
   }
 
   public redirect(url: string) {
-    this.router.navigateByUrl(url);
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([url]));
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FacsadeService } from '../../services/facsade.service';
+import { Subscriber } from 'src/app/models/subscriber';
 
 @Component({
   selector: 'app-blog-page',
@@ -9,6 +10,8 @@ import { FacsadeService } from '../../services/facsade.service';
 export class BlogPageComponent implements OnInit {
 
   @Input() public loadFilter: string = '';
+
+  @Input() public authorId!: Subscriber;
 
   public posts: any[] = [];
 
@@ -21,6 +24,7 @@ export class BlogPageComponent implements OnInit {
   }
 
   public loadPosts() {
+    this.loaded = false;
     switch(this.loadFilter) {
       case '': {
         this.fascade.getAllPosts().subscribe(
@@ -37,7 +41,8 @@ export class BlogPageComponent implements OnInit {
           (response: any) => {
             if (response.response.allPosts.length) {
               this.posts = response.response.allPosts.filter(
-                (post: any) => post.isSubmitted === true);
+                (post: any) => post.isSubmitted === true && 
+                post.author.id === this.authorId.id);
             }
             this.loaded = true;
           });
@@ -61,7 +66,8 @@ export class BlogPageComponent implements OnInit {
           (response: any) => {
             if (response.response.allPosts.length) {
               this.posts = response.response.allPosts.filter(
-                (post: any) => post.isSubmitted === false);
+                (post: any) => post.isSubmitted === true
+                && post.isAccepted === false);
             }
             this.loaded = true;
           });
@@ -73,7 +79,8 @@ export class BlogPageComponent implements OnInit {
           (response: any) => {
             if (response.response.allPosts.length) {
               this.posts = response.response.allPosts.filter(
-                (post: any) => post.isSubmitted === false);
+                (post: any) => post.isAccepted === true
+                && post.isPublished === false);
             }
             this.loaded = true;
           });
