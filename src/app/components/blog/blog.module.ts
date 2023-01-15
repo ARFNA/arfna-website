@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TextEditorComponent } from './components/text-editor/text-editor.component';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { BlogRoutingModule } from './blog-routing.module';
@@ -15,16 +14,20 @@ import { MainDashboardComponent } from './components/main-dashoboard/main-dashbo
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BlogPageSingularComponent } from './components/blog-page-singular/blog-page-singular.component';
 
 
 
 @NgModule({
   declarations: [
-    TextEditorComponent,
     BlogPageComponent,
     BlogPostComponent,
     NewPostFormComponent,
-    MainDashboardComponent
+    MainDashboardComponent,
+    BlogPageSingularComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,12 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BlogModule { }

@@ -1,16 +1,23 @@
 <mat-card>
-    <h2>Add a Post Title:</h2>
-    <app-text-editor></app-text-editor>
-    <br>
+    <form [formGroup]="postForm">
+        <h2>Add a Post Title:</h2>
+        <mat-form-field appearance="outline">
+            <mat-label>Add Title Here:</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="postForm.controls['title'].hasError"> {{ proccessErrors("title") }}
+            </mat-error>
+        </mat-form-field>
+        <br>
 
-    <!-- <h2>Add a Post Summary:</h2>
-    <app-text-editor></app-text-editor>
-    <br> -->
+        <h2>Add a Post Body:</h2>
+        <angular-editor formControlName='markdown' [placeholder]="htmlContent" [config]="config"></angular-editor>
+        <p>We save your changes automatically!</p>
+        <mat-error *ngIf="postForm.controls['markdown'].hasError"> {{ proccessErrors("markdown") }}
+        </mat-error>
 
-    <h2>Add a Post Body:</h2>
-    <app-text-editor></app-text-editor>
+        <button (click)="submit()" mat-raised-button color="primary">
+            <span>Submit</span>
+        </button>
+    </form>
 
-    <button mat-raised-button color="primary">
-        <span>Submit</span>
-    </button>
 </mat-card>

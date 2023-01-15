@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextEditorComponent } from './text-editor.component';
+import { BlogPageSingularComponent } from './blog-page-singular.component';
 
-describe('TextEditorComponent', () => {
-  let component: TextEditorComponent;
-  let fixture: ComponentFixture<TextEditorComponent>;
+describe('BlogPageSingularComponent', () => {
+  let component: BlogPageSingularComponent;
+  let fixture: ComponentFixture<BlogPageSingularComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextEditorComponent ]
+      declarations: [ BlogPageSingularComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextEditorComponent);
+    fixture = TestBed.createComponent(BlogPageSingularComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

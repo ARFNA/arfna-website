@@ -9,7 +9,7 @@ import { Post } from 'src/app/models/post';
 })
 export class BlogPostComponent implements OnInit {
 
-  @Input() public post: Post = new Post('', '', new Author());
+  @Input() public post: Post = new Post('', '', 0, new Author());
   
   constructor() { }
 

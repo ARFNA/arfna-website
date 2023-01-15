@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://localhost:8080/arfna/api",
+      "target": "http://javatestloadbalancer-335255745.us-west-2.elb.amazonaws.com/arfna/api",
       "secure": true,
       "changeOrigin": true,
       "pathRewrite": {

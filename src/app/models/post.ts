@@ -13,9 +13,16 @@ export class Post {
 
     constructor(title: string,
         markdown: string,
-        author: Author) {
+        id?: number,
+        author?: Author) {
             this.title = title;
             this.markdown = markdown;
-            this.author = author;
+            if (author) {
+                this.author = author;
+            }
+            if (id) {
+                this.id = id;
+            }
+            
     }
 }
