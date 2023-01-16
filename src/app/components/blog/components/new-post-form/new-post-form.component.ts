@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { debounceTime } from 'rxjs';
@@ -19,6 +20,15 @@ export class NewPostFormComponent implements OnInit {
 
   public currentPost!: number;
 
+  public saving: boolean = false;
+
+  public submitting: boolean = false;
+
+  public errorMessage: string = '';
+
+  @Output()
+  public statechange: EventEmitter<string> = new EventEmitter();
+
   @Input()
   public htmlContent: string = 'Enter your text here!'; 
 
@@ -33,7 +43,7 @@ export class NewPostFormComponent implements OnInit {
     translate: 'yes',
     enableToolbar: true,
     showToolbar: true,
-    placeholder: 'Enter text here...',
+    placeholder: this.htmlContent,
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Calibri',
     toolbarHiddenButtons: [
@@ -55,6 +65,8 @@ export class NewPostFormComponent implements OnInit {
     this.postForm.valueChanges.pipe(
       debounceTime(5000),
     ).subscribe((result) => {this.save();});
+
+    this.save();
   }
 
   public processConstants(): void {
@@ -68,24 +80,34 @@ export class NewPostFormComponent implements OnInit {
   }
 
   save() {
+    this.saving = true;
     let form = this.postForm.value;
-    let post = new Post(form.title, form.markdown);
+    let post = new Post(form.title, form.markdown, this.currentPost);
 
-    this.fascadeService.savePost(post).subscribe((response) => {
+    this.fascadeService.savePost(post).subscribe((response: any) => {
+      this.saving = false;
+      if (response.response.post.id) {
+        this.currentPost = response.response.post.id;
+      }
 
     }, (error) => {
-
+      this.saving = false;
+      this.errorMessage = error.status.message;
     });
   }
 
   submit() {
+    this.submitting = true;
     let form = this.postForm.value;
     let post = new Post(form.title, form.markdown, this.currentPost);
 
     this.fascadeService.submitPost(post).subscribe((response) => {
+      this.submitting = false;
+      this.statechange.emit('myPosts');
 
     }, (error) => {
-      
+      this.submitting = false;
+      this.errorMessage = error.status.message;
     });
   }
 

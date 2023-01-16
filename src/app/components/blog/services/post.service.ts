@@ -7,13 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PostService {
-
   constructor(private http: HttpClient) { }
 
   public httpOptions() {
     return {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type': 'application/json'
       })
     };
   }
@@ -23,19 +22,19 @@ export class PostService {
   }
 
   public gPost() {
-      return this.http.post(
-        this.urlBuilder('gpost'), {
-          'version': 'V1',
-          'requestType': 'GET_ALL_PUBLISHED'
-      },
-        this.httpOptions());
+    return this.http.post(
+      this.urlBuilder('gpost'), {
+      'version': 'V1',
+      'requestType': 'GET_ALL_PUBLISHED'
+    },
+      this.httpOptions());
   }
 
   public uPost() {
     return this.http.post(
       this.urlBuilder('mpost'), {
-          'version': 'V1',
-          'mutation': 'GET_FOR_SUBSCRIBER'
+      'version': 'V1',
+      'mutation': 'GET_FOR_SUBSCRIBER'
     },
       this.httpOptions());
   }
@@ -43,9 +42,9 @@ export class PostService {
   public savePost(post: Post) {
     return this.http.post(
       this.urlBuilder('mpost'), {
-          'version': 'V1',
-          'mutation': 'SAVE',
-          'post': post
+      'version': 'V1',
+      'mutation': 'SAVE',
+      'post': post
     },
       this.httpOptions());
   }
@@ -53,29 +52,33 @@ export class PostService {
   public submitPost(post: Post) {
     return this.http.post(
       this.urlBuilder('mpost'), {
-          'version': 'V1',
-          'mutation': 'SUBMIT',
-          'post': post
+      'version': 'V1',
+      'mutation': 'SUBMIT',
+      'post': post
     },
       this.httpOptions());
   }
 
   public getPost(id: number) {
-  return this.http.post(
-    this.urlBuilder('mpost'), {
-        'id': id,
-        'version': 'V1',
-        'mutation': 'GET_EXISTING_POST'
-  },
-    this.httpOptions());
+    return this.http.post(
+      this.urlBuilder('mpost'), {
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'mutation': 'GET_EXISTING_POST'
+    },
+      this.httpOptions());
   }
 
   public acceptPost(id: number) {
     return this.http.post(
       this.urlBuilder('mpost'), {
-          'id': id,
-          'version': 'V1',
-          'mutation': 'ACCEPT'
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'mutation': 'ACCEPT'
     },
       this.httpOptions());
   }
@@ -83,10 +86,25 @@ export class PostService {
   public publishPost(id: number) {
     return this.http.post(
       this.urlBuilder('mpost'), {
-          'id': id,
-          'version': 'V1',
-          'mutation': 'PUBLISH'
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'mutation': 'PUBLISH'
     },
       this.httpOptions());
   }
+
+  public deletePost(id: number) {
+    return this.http.post(
+      this.urlBuilder('mpost'), {
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'mutation': 'DELETE'
+    },
+      this.httpOptions());
+  }
+  
 }

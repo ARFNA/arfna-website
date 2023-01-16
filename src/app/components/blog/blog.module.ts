@@ -9,6 +9,7 @@ import { NewPostFormComponent } from './components/new-post-form/new-post-form.c
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MainDashboardComponent } from './components/main-dashoboard/main-dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -45,7 +46,8 @@ import { BlogPageSingularComponent } from './components/blog-page-singular/blog-
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressBarModule
   ]
 })
 export class BlogModule { }
