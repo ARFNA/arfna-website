@@ -3,6 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscriber } from 'src/app/models/subscriber';
 import { RSubscriber } from 'src/app/models/rsubscriber';
 import { FascadeService } from 'src/app/services/fascade.service';
+import { TermsOfService } from '../../constants/termsOfService.constants'
 
 @Component({
   selector: 'app-main-dashboard',
@@ -16,6 +17,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   public currentState: string = 'myPosts';
 
   public userLoggedIn: Subscriber = {};
+
+  public termsOfService: string = TermsOfService.TERMS;
 
   private _mobileQueryListener: () => void;
 
@@ -32,6 +35,10 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
       (response: any) => {
         if (this.userLoggedIn) {
           this.userLoggedIn = response.response.subscriber;
+          if (!this.userLoggedIn.acceptedTermsOfService) {
+            this.openModal('TOS');
+          }
+          // check if user accepted TOS, if not open modal
         }
     },
     (error: any) => {
@@ -58,6 +65,17 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     (error: any) => {
       this.fascadeService.routeTo('/');
     });;
+  }
+
+  openModal(id: string) {
+    this.fascadeService.open(id);
+  }
+
+  closeModal(id: string, confirm: boolean) {
+    this.fascadeService.close(id);
+    if (confirm) {
+      this.fascadeService.acceptTerms();
+    }
   }
 
 }

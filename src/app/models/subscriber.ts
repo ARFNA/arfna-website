@@ -4,6 +4,7 @@ export class Subscriber {
     public emailAddress?: string;
     public password?: string;
     public role?: string;
+    public acceptedTermsOfService?: boolean;
     
     constructor() {}
 }
