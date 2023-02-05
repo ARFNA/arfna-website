@@ -44,7 +44,7 @@ export class TokenService {
       {
         'version': 'V1',
         'mutation': 'ACCEPT_TERMS_OF_SERVICE'
-      }
-    )
+      },
+      this.httpOptions());
   }
 }

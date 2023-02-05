@@ -1,1 +1,15 @@
-<p>blog-page-singular works!</p>
+<div class="background">
+    <div class="container">
+        <mat-card>
+            <div class="post">
+                <h1>
+                    {{post?.title}}
+                </h1>
+                <h3>
+                    By: {{post?.author?.name}}
+                </h3>
+                <div class="unsetGlobalStyles" [innerHTML]="post?.markdown"></div>
+            </div>
+        </mat-card>
+    </div>
+</div>

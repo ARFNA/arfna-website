@@ -22,6 +22,10 @@ export class BlogPostComponent {
   constructor(private facsadeService: FacsadeService,
     private facsade: FascadeService) { }
 
+  public urlEncodeTitle() {
+    return this.post.title.split(' ').join('-');
+  }
+
   public accept() {
     this.facsadeService.acceptPost(this.post.id).subscribe((response) => {
       this.reload.emit('');

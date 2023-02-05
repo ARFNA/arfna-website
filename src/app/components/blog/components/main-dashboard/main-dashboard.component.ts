@@ -33,12 +33,12 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
       (response: any) => {
-        if (this.userLoggedIn) {
+        if (response) {
           this.userLoggedIn = response.response.subscriber;
+          console.log(response.response.subscriber);
           if (!this.userLoggedIn.acceptedTermsOfService) {
             this.openModal('TOS');
           }
-          // check if user accepted TOS, if not open modal
         }
     },
     (error: any) => {
@@ -74,7 +74,9 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   closeModal(id: string, confirm: boolean) {
     this.fascadeService.close(id);
     if (confirm) {
-      this.fascadeService.acceptTerms();
+      this.fascadeService.acceptTerms().subscribe((data) => {
+        console.log(data);
+      });
     }
   }
 

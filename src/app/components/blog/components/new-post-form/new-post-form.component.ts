@@ -1,4 +1,3 @@
-import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
@@ -57,6 +56,8 @@ export class NewPostFormComponent implements OnInit {
 
   public postForm!: FormGroup;
 
+  public saveSubscription: any;
+
   constructor(private formBuilder: FormBuilderService,
     private formFieldService: FormFieldsService,
     private fascadeService: FacsadeService) { }
@@ -65,8 +66,8 @@ export class NewPostFormComponent implements OnInit {
     this.postForm = this.formBuilder.buildPostFormGroup();
     this.processConstants();
 
-    this.postForm.valueChanges.pipe(
-      debounceTime(5000),
+    this.saveSubscription = this.postForm.valueChanges.pipe(
+      debounceTime(2000),
     ).subscribe((result) => {this.save();});
 
     this.save();
@@ -100,6 +101,7 @@ export class NewPostFormComponent implements OnInit {
   }
 
   submit() {
+    this.saveSubscription.unsubscribe();
     this.submitting = true;
     let form = this.postForm.value;
     let post = new Post(form.title, form.markdown, this.currentPost);
