@@ -79,7 +79,7 @@ export class LoginSignupFormComponent implements OnInit {
   public signUp(method: string, formData: Subscriber) {
     this.fascadeService.manageSubscriber(new MSubscriber('V1', method, formData))
     .subscribe((response: any) => {
-        this.fascadeService.redirect('/blog');
+        this.login(formData);
     },
     (error: any) => {
       this.toggleActive();
@@ -91,8 +91,11 @@ export class LoginSignupFormComponent implements OnInit {
     });
   }
 
-  public login() {
+  public login(signUpData?: Subscriber) {
     this.toggleActive();
+    if (signUpData) {
+      this.loginForm.patchValue(signUpData);
+    }
     let formData: Subscriber = new Subscriber();
     Object.assign(formData, this.loginForm.value);
     

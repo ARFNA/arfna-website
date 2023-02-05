@@ -27,7 +27,7 @@ import { HeaderWithDividerComponent } from './components/header-with-divider/hea
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from '../modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -63,6 +63,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ReactiveFormsModule,
     HttpClientModule,
     MatProgressBarModule
+  ],
+  exports: [
+    ModalComponent
   ]
 })
 export class HomeModule { }

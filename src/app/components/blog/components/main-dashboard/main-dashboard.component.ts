@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscriber } from 'src/app/models/subscriber';
 import { RSubscriber } from 'src/app/models/rsubscriber';
@@ -9,7 +9,7 @@ import { FascadeService } from 'src/app/services/fascade.service';
   templateUrl: './main-dashboard.component.html',
   styleUrls: ['./main-dashboard.component.scss']
 })
-export class MainDashboardComponent implements OnInit {
+export class MainDashboardComponent implements OnInit, OnDestroy {
 
   public mobileQuery: MediaQueryList;
 
