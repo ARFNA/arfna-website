@@ -46,6 +46,9 @@ export class NewPostFormComponent implements OnInit {
     placeholder: this.htmlContent,
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Calibri',
+    fonts: [
+      {class: 'calibri', name: 'Calibri'}
+    ],
     toolbarHiddenButtons: [
       [],
       ['insertImage', 'customClasses', 'insertVideo', 'toggleEditorMode']
