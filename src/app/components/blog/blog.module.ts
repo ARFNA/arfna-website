@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
-import { MainDashboardComponent } from './components/main-dashoboard/main-dashboard.component';
+import { MainDashboardComponent } from './components/main-dashboard/main-dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -19,7 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogPageSingularComponent } from './components/blog-page-singular/blog-page-singular.component';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -47,7 +48,9 @@ import { BlogPageSingularComponent } from './components/blog-page-singular/blog-
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTooltipModule,
+    HomeModule
   ]
 })
 export class BlogModule { }
