@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Author } from 'src/app/models/author';
 import { Post } from 'src/app/models/post';
 import { FascadeService } from 'src/app/services/fascade.service';
@@ -9,7 +9,7 @@ import { FacsadeService } from '../../services/facsade.service';
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss']
 })
-export class BlogPostComponent {
+export class BlogPostComponent implements OnInit {
 
   @Input() public post: Post = new Post('', '', 0, new Author());
 
@@ -21,6 +21,12 @@ export class BlogPostComponent {
   
   constructor(private facsadeService: FacsadeService,
     private facsade: FascadeService) { }
+
+  ngOnInit(): void {
+    if (!this.post.title) {
+      this.post.title = 'untitled';
+    }
+  }
 
   public urlEncodeTitle() {
     return this.post.title.split(' ').join('-');
