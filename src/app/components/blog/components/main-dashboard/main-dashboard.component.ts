@@ -3,7 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscriber } from 'src/app/models/subscriber';
 import { RSubscriber } from 'src/app/models/rsubscriber';
 import { FascadeService } from 'src/app/services/fascade.service';
-import { TermsOfService } from '../../constants/termsOfService.constants'
+import { TermsOfService } from '../../constants/termsOfService.constants';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -35,7 +35,6 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
       (response: any) => {
         if (response) {
           this.userLoggedIn = response.response.subscriber;
-          console.log(response.response.subscriber);
           if (!this.userLoggedIn.acceptedTermsOfService) {
             this.openModal('TOS');
           }
@@ -75,7 +74,7 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.fascadeService.close(id);
     if (confirm) {
       this.fascadeService.acceptTerms().subscribe((data) => {
-        console.log(data);
+         this.userLoggedIn = data.response.subscriber;
       });
     }
   }
