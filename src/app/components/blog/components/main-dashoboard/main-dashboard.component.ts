@@ -13,7 +13,7 @@ export class MainDashboardComponent implements OnInit {
 
   public mobileQuery: MediaQueryList;
 
-  public currentState: string = '';
+  public currentState: string = 'myPosts';
 
   public userLoggedIn: Subscriber = {};
 
@@ -30,10 +30,12 @@ export class MainDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
       (response: any) => {
-        this.userLoggedIn = response.response.subscriber;
+        if (this.userLoggedIn) {
+          this.userLoggedIn = response.response.subscriber;
+        }
     },
     (error: any) => {
-      this.userLoggedIn = {};
+      this.fascadeService.routeTo('/404');
     });
   }
 
@@ -41,8 +43,21 @@ export class MainDashboardComponent implements OnInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  public changeState(state: string): void {
-    this.currentState = state;
+  public changeState(state: any): void {
+    if (typeof state === 'string') {
+      this.currentState = state;
+    }    
+  }
+
+  public logout(): void {
+    this.fascadeService.logout().subscribe(
+      (response: any) => {
+        window.location.href='/'
+        this.fascadeService.routeTo('/');
+    },
+    (error: any) => {
+      this.fascadeService.routeTo('/');
+    });;
   }
 
 }

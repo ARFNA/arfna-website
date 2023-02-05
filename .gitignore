@@ -1,6 +1,3 @@
-# PROD files
-src/environments/environment.prod.ts
-
 # compiled output
 /dist
 /tmp

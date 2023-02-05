@@ -12,14 +12,14 @@
           <a mat-list-item (click)="changeState('newPost')">Create a Post</a>
           <a mat-list-item (click)="changeState('drafts')">Drafts</a>
           <a mat-list-item (click)="changeState('myPosts')">My Posts</a>
-          <a mat-list-item *ngIf="userLoggedIn.role === 'maint'" (click)="changeState('accept')">Approve</a>
-          <a mat-list-item *ngIf="userLoggedIn.role === 'admin'" (click)="changeState('publish')">Approve</a>
-          <a mat-list-item >Logout</a>
+          <a mat-list-item *ngIf="userLoggedIn.role === 'maint' || userLoggedIn.role === 'admin'" (click)="changeState('accept')">Approve</a>
+          <a mat-list-item *ngIf="userLoggedIn.role === 'admin'" (click)="changeState('publish')">Publish</a>
+          <a mat-list-item (click)="logout()">Logout</a>
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
         <div *ngIf="currentState == 'newPost'">
-          <app-new-post-form>   
+          <app-new-post-form (statechange)="changeState($event)">
           </app-new-post-form>
         </div>
 
@@ -28,17 +28,17 @@
         </div>
 
         <div *ngIf="currentState == 'myPosts'">
-          <app-blog-page [loadFilter]="'myPosts'"></app-blog-page>
+          <app-blog-page [authorId]="userLoggedIn" [loadFilter]="'myPosts'"></app-blog-page>
         </div>
 
         <div *ngIf="currentState == 'accept' &&
-          userLoggedIn.role === 'maint'">
-          <app-blog-page [loadFilter]="'accept'"></app-blog-page>
+          (userLoggedIn.role === 'maint' || userLoggedIn.role === 'admin')">
+          <app-blog-page (statechange)="changeState($event)" [loadFilter]="'accept'"></app-blog-page>
         </div>
 
         <div *ngIf="currentState == 'publish' &&
           userLoggedIn.role === 'admin'">
-          <app-blog-page [loadFilter]="'publish'"></app-blog-page>
+          <app-blog-page (statechange)="changeState($event)" [loadFilter]="'publish'"></app-blog-page>
         </div>
         
       </mat-sidenav-content>

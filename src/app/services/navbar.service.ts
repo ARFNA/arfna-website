@@ -23,6 +23,7 @@ export class NavbarService {
  */
   public routeTo(link: string) {
     this.activeLink.next(link);
-    this.router.navigateByUrl(link);
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([link]));
   }
 }

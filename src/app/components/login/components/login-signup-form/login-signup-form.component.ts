@@ -98,7 +98,8 @@ export class LoginSignupFormComponent implements OnInit {
     
     this.fascadeService.manageSubscriber(new MSubscriber('V1', 'LOGIN', formData))
     .subscribe((response: any) => {
-      this.fascadeService.redirect('/blog');
+      window.location.href='/blog/dashboard'
+      this.fascadeService.redirect('/blog/dashboard');
     },
     (error: any) => {
       this.toggleActive();

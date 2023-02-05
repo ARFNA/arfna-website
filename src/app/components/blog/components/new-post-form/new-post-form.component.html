@@ -11,11 +11,19 @@
 
         <h2>Add a Post Body:</h2>
         <angular-editor formControlName='markdown' [placeholder]="htmlContent" [config]="config"></angular-editor>
-        <p>We save your changes automatically!</p>
+        
+        <div class="save">
+            <mat-spinner [diameter]="20" *ngIf="saving"></mat-spinner> <p *ngIf="saving">Saving...</p>
+            <p *ngIf="!saving">We save your changes automatically!</p>
+        </div>
         <mat-error *ngIf="postForm.controls['markdown'].hasError"> {{ proccessErrors("markdown") }}
         </mat-error>
 
-        <button (click)="submit()" mat-raised-button color="primary">
+        <mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
+        <button (click)="save()" mat-raised-button color="primary">
+            <span>Save</span>
+        </button>
+        <button (click)="submit()" [disabled]="postForm.invalid" mat-raised-button color="primary">
             <span>Submit</span>
         </button>
     </form>

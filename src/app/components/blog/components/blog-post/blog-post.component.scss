@@ -6,3 +6,25 @@ mat-card {
 mat-card > *:not(:first-child) {
     margin-top: 10px;
 }
+
+mat-icon {
+    color: white;
+}
+
+h1 {
+    font-weight: 500;
+    color: #99c5b5;
+}
+
+h3 {
+    font-weight: 300;
+    font-style: italic;
+}
+
+button {
+    margin-right: 5px;
+}
+
+.sidebar {
+    text-align: right;
+}

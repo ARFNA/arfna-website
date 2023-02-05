@@ -1,11 +1,20 @@
 <mat-card>
-    <div>
-        {{post.title}}
+    <div class="sidebar">
+        <button mat-mini-fab color="primary" *ngIf="tabState === 'myPosts' || tabState === 'draftPosts'"><mat-icon class="example-icon">settings</mat-icon></button>
+        <button mat-mini-fab (click)="delete()" color="primary" *ngIf="tabState"><mat-icon class="example-icon">delete</mat-icon></button>
+        <button mat-mini-fab (click)="accept()" color="primary" *ngIf="tabState === 'accept'"><mat-icon class="example-icon">check</mat-icon></button>
+        <button mat-mini-fab (click)="publish()" color="primary" *ngIf="tabState === 'publish'"><mat-icon class="example-icon">done_all</mat-icon></button>
     </div>
-    <div>
-        By: {{post.author?.name}}
+    <div class="post">
+        <h1>
+            {{post.title}}
+        </h1>
+        <h3>
+            By: {{post.author?.name}}
+        </h3>
+        <p>
+            {{post.markdown}}
+        </p>
     </div>
-    <div>
-        {{post.markdown}}
-    </div>
+    
 </mat-card>

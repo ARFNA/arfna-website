@@ -10,7 +10,7 @@ export class FormFieldsService {
   public processFieldValidationMessage(form: any, fieldName: string, content: Map<string, string>): string | undefined {
     const { errors, value } = form.controls[fieldName] || {};
     if (errors) {
-      const { required, maxlength, minlength, pattern } = errors;
+      const { required, maxlength, minlength } = errors;
       return (
         required ? content.get('requiredTxt') :
           maxlength ? content.get('maxLengthTxt') :
