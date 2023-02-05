@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Author } from 'src/app/models/author';
 import { Post } from 'src/app/models/post';
+import { FascadeService } from 'src/app/services/fascade.service';
 import { FacsadeService } from '../../services/facsade.service';
 
 @Component({
@@ -8,20 +9,22 @@ import { FacsadeService } from '../../services/facsade.service';
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss']
 })
-export class BlogPostComponent implements OnInit {
+export class BlogPostComponent {
 
   @Input() public post: Post = new Post('', '', 0, new Author());
 
   @Input() public tabState: string = '';
-  
-  constructor(private facsadeService: FacsadeService) { }
 
-  ngOnInit(): void {
-  }
+  public buttonPressed: string = '';
+
+  @Output() public reload: EventEmitter<any> = new EventEmitter<any>();
+  
+  constructor(private facsadeService: FacsadeService,
+    private facsade: FascadeService) { }
 
   public accept() {
     this.facsadeService.acceptPost(this.post.id).subscribe((response) => {
-      this.facsadeService.redirect('/blog/dashboard');
+      this.reload.emit('');
     },
     (error) => {
 
@@ -30,7 +33,7 @@ export class BlogPostComponent implements OnInit {
 
   public publish() {
     this.facsadeService.publishPost(this.post.id).subscribe((response) => {
-      this.facsadeService.redirect('/blog/dashboard');
+      this.reload.emit('');
     },
     (error) => {
 
@@ -39,13 +42,32 @@ export class BlogPostComponent implements OnInit {
 
   public delete() {
     this.facsadeService.deletePost(this.post.id).subscribe((response) => {
-      this.facsadeService.redirect('/blog/dashboard');
+      this.reload.emit('');
     },
     (error) => {
 
     });
   }
+  
+  openModal(id: string, button: string) {
+    this.facsade.open(id);
+    this.buttonPressed = button;
+  }
 
-
-
+  closeModal(id: string, confirm: boolean) {
+    this.facsade.close(id);
+    if (confirm) {
+      switch (this.buttonPressed) {
+        case 'delete':
+          this.delete();
+          break;
+        case 'accept':
+          this.accept();
+          break;
+        case 'publish':
+          this.publish();
+          break;
+      }
+    }
+  }
 }

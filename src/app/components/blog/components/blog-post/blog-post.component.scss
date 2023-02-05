@@ -9,6 +9,7 @@ mat-card > *:not(:first-child) {
 
 mat-icon {
     color: white;
+    vertical-align: middle;
 }
 
 h1 {
@@ -27,4 +28,10 @@ button {
 
 .sidebar {
     text-align: right;
+}
+
+::ng-deep .modal-body {
+    width: 50% !important;
+    margin: auto !important;
+    margin-top: 5rem !important;
 }

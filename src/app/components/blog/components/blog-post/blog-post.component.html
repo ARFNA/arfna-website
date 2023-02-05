@@ -1,9 +1,19 @@
 <mat-card>
     <div class="sidebar">
-        <button mat-mini-fab color="primary" *ngIf="tabState === 'myPosts' || tabState === 'draftPosts'"><mat-icon class="example-icon">settings</mat-icon></button>
-        <button mat-mini-fab (click)="delete()" color="primary" *ngIf="tabState"><mat-icon class="example-icon">delete</mat-icon></button>
-        <button mat-mini-fab (click)="accept()" color="primary" *ngIf="tabState === 'accept'"><mat-icon class="example-icon">check</mat-icon></button>
-        <button mat-mini-fab (click)="publish()" color="primary" *ngIf="tabState === 'publish'"><mat-icon class="example-icon">done_all</mat-icon></button>
+        <button mat-icon-button *ngIf="post.isSubmitted && !post.isAccepted" matTooltip="Submitted"><mat-icon
+                class="example-icon" color="primary">check</mat-icon></button>
+        <button mat-icon-button *ngIf="post.isAccepted && !post.isPublished" matTooltip="Accepted"><mat-icon
+                class="example-icon" color="primary">done_all</mat-icon></button>
+        <button mat-icon-button *ngIf="post.isPublished" matTooltip="Published"><mat-icon class="example-icon"
+                color="primary">download_done</mat-icon></button>
+        <button mat-mini-fab color="primary" *ngIf="tabState === 'myPosts' || tabState === 'draftPosts'"><mat-icon
+                class="example-icon">settings</mat-icon></button>
+        <button mat-mini-fab (click)="openModal('modal-6', 'delete')" color="primary" *ngIf="tabState"><mat-icon
+                class="example-icon">delete</mat-icon></button>
+        <button mat-mini-fab (click)="openModal('modal-6', 'accept')" color="primary" *ngIf="tabState === 'accept'"><mat-icon
+                class="example-icon">check</mat-icon></button>
+        <button mat-mini-fab (click)="openModal('modal-6', 'publish')" color="primary" *ngIf="tabState === 'publish'"><mat-icon
+                class="example-icon">done_all</mat-icon></button>
     </div>
     <div class="post">
         <h1>
@@ -12,9 +22,20 @@
         <h3>
             By: {{post.author?.name}}
         </h3>
-        <p>
-            {{post.markdown}}
-        </p>
+        <!-- TO DO: Add thumbnail here -->
     </div>
     
 </mat-card>
+
+<app-modal id="modal-6">
+        <h2 class="green">Confirm Action</h2>
+        <div>
+          <h4>Are you sure you want to do this?</h4>
+        </div>
+        <button mat-raised-button color="primary" (click)="closeModal('modal-6', false)">
+          Cancel
+        </button>
+        <button mat-raised-button color="primary" (click)="closeModal('modal-6', true)">
+          Confirm
+        </button>
+</app-modal>
