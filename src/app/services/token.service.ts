@@ -15,7 +15,8 @@ export class TokenService {
       headers: new HttpHeaders({
         'Content-Type':  'text/json'
       }),
-      withCredentials: true
+      withCredentials: true,
+      observe: 'response' as 'response'
     };
   }
 
