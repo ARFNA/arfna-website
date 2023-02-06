@@ -1,0 +1,46 @@
+h1 {
+    font-weight: 500;
+    color: #99c5b5;
+}
+
+h3 {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.container {
+    max-width: 70%;
+    background-color: #E0EEE9;
+    padding: 15px;
+    margin: auto;
+    height: 100vh;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,.2);
+}
+
+mat-spinner {
+    margin: auto;
+}
+
+.background {
+    background-image: url('../../../../../assets/peanut-splash.jpg');
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+mat-icon {
+    color: #FAFAFA;
+}
+
+button {
+    height: 44px;
+    width: 44px;
+}
+
+.unsetGlobalStyles {
+    all: initial;
+    all: unset;
+    text-align: unset;
+}
