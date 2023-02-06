@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
       (response: any) => {
-        this.userLoggedIn = response.response.subscriber;
+        this.userLoggedIn = response.body.response.subscriber;
     },
     (error: any) => {
       this.userLoggedIn = {};

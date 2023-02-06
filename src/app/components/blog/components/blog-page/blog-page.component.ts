@@ -31,18 +31,18 @@ export class BlogPageComponent implements OnInit {
       case '': {
         this.fascade.getAllPosts().subscribe(
           (response: any) => {
-            if (response.response.posts.length) {
-              this.posts = response.response.posts;
-            }
-            this.loaded = true;
+              if (response.body.response.posts.length) {
+                this.posts = response.body.response.posts;
+              }
+              this.loaded = true;
           });
           break;
       }
       case 'myPosts': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isSubmitted === true && 
                 post.author.id === this.authorId.id);
             }
@@ -54,8 +54,8 @@ export class BlogPageComponent implements OnInit {
       case 'draftPosts': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isSubmitted === false);
             }
             this.loaded = true;
@@ -66,8 +66,8 @@ export class BlogPageComponent implements OnInit {
       case 'accept': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isSubmitted === true
                 && post.isAccepted === false);
             }
@@ -79,8 +79,8 @@ export class BlogPageComponent implements OnInit {
       case 'publish': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isAccepted === true
                 && post.isPublished === false);
             }
