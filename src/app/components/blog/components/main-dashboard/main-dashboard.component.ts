@@ -39,7 +39,7 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.userObservable = this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
       (response: any) => {
         if (response) {
-          this.userLoggedIn = response.response.subscriber;
+          this.userLoggedIn = response.body.response.subscriber;
           console.log(this.userLoggedIn.acceptedTermsOfService);
           if (!this.userLoggedIn.acceptedTermsOfService) {
             this.openModal('TOS');

@@ -30,7 +30,8 @@ export class PostService {
       'version': 'V1',
       'requestType': 'GET_ALL_PUBLISHED'
     },
-      this.httpOptions());
+      this.httpOptions())
+      
   }
 
   public uPost() {

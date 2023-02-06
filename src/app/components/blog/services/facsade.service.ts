@@ -1,5 +1,7 @@
+import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Image } from 'src/app/models/image';
 import { Post } from 'src/app/models/post';
 import { PostService } from './post.service';
@@ -13,6 +15,18 @@ export class FacsadeService {
 
   public getAllPosts() {
     return this.postService.gPost();
+    // let post: Observable<HttpResponse<Object>> = this.postService.gPost();
+    // console.log("Getting posts")
+    // post.subscribe(p => {
+    //   if (p!=null && p.body !=null ) {
+    //     let body: any = p.body
+    //     console.log(body.response)
+    //     return body.response
+    //   }
+    
+    // })
+
+    // return {posts: []};
   }
 
   public getMyPosts() {
