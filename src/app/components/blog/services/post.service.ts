@@ -16,7 +16,7 @@ export class PostService {
         'Content-Type': 'application/json'
       }),
       withCredentials: true,
-      observe: 'response' as 'response'
+      // observe: 'response' as 'response'
     };
   }
 

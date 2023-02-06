@@ -16,7 +16,7 @@ export class LoginService {
         'Content-Type':  'text/json'
       }),
       withCredentials: true,
-      observe: 'response' as 'response'
+      // observe: 'response' as 'response'
     };
   }
 
