@@ -22,6 +22,16 @@ export class BlogPostComponent {
   constructor(private facsadeService: FacsadeService,
     private facsade: FascadeService) { }
 
+  ngOnInit(): void {
+    if (!this.post.title) {
+      this.post.title = 'untitled';
+    }
+  }
+
+  public urlEncodeTitle() {
+    return this.post.title.split(' ').join('-');
+  }
+
   public accept() {
     this.facsadeService.acceptPost(this.post.id).subscribe((response) => {
       this.reload.emit('');
