@@ -37,4 +37,14 @@ export class TokenService {
       },
       this.httpOptions());
   }
+
+  public accept() {
+    return this.http.post<any>(
+      this.urlBuilder('msubscriber'),
+      {
+        'version': 'V1',
+        'mutation': 'ACCEPT_TERMS_OF_SERVICE'
+      }
+    )
+  }
 }

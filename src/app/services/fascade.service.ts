@@ -48,4 +48,8 @@ export class FascadeService {
   public logout() {
     return this.token.logout();
   }
+
+  public acceptTerms() {
+    return this.token.accept();
+  }
 }
