@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FacsadeService } from '../../services/facsade.service';
 import { Subscriber } from 'src/app/models/subscriber';
 
@@ -16,6 +16,8 @@ export class BlogPageComponent implements OnInit {
   public posts: any[] = [];
 
   public loaded: boolean = false;
+  
+  @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private fascade: FacsadeService) { }
 
@@ -88,6 +90,10 @@ export class BlogPageComponent implements OnInit {
       }
         
     }
+  }
+
+  public editPost(event: any) {
+    this.editMode.emit(event);
   }
     
 }

@@ -20,6 +20,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
 
   public termsOfService: string = TermsOfService.TERMS;
 
+  public currentEditPost!: number | undefined;
+
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, 
@@ -49,10 +51,11 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  public changeState(state: any): void {
+  public changeState(state: any, id?: number): void {
     if (typeof state === 'string') {
       this.currentState = state;
-    }    
+    }   
+    this.currentEditPost = id;
   }
 
   public logout(): void {

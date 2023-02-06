@@ -17,13 +17,16 @@ export class NewPostFormComponent implements OnInit {
 
   public content: Map<string, string> = new Map();
 
-  public currentPost!: number;
+  @Input()
+  public currentPost!: number | undefined;
 
   public saving: boolean = false;
 
   public submitting: boolean = false;
 
   public errorMessage: string = '';
+
+  public selectedFile!: any;
 
   @Output()
   public statechange: EventEmitter<string> = new EventEmitter();
@@ -68,9 +71,20 @@ export class NewPostFormComponent implements OnInit {
 
     this.saveSubscription = this.postForm.valueChanges.pipe(
       debounceTime(2000),
-    ).subscribe((result) => {this.save();});
+    ).subscribe((result: any) => {this.save();});
 
-    this.save();
+    if (!this.currentPost) {
+      this.save();
+    } else {
+      this.fascadeService.getPost(this.currentPost)
+        .subscribe((data: any) => {
+        if (!data.response.post.title) {
+            data.response.post.title = 'untitled';
+        }
+        console.log(data);
+          this.postForm.patchValue(data.response.post);
+      })
+    }
   }
 
   public processConstants(): void {
@@ -114,6 +128,13 @@ export class NewPostFormComponent implements OnInit {
       this.submitting = false;
       this.errorMessage = error.status.message;
     });
+  }
+
+  onFileSelected(event: any): void {
+    if (event.target.files[0].type === 'image/jpeg' ||
+    event.target.files[0].type === 'image/png' ) {
+      this.selectedFile = event.target.files[0] ?? null;
+    }
   }
 
 }

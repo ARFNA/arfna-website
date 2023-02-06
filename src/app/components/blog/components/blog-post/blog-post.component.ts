@@ -18,6 +18,8 @@ export class BlogPostComponent implements OnInit {
   public buttonPressed: string = '';
 
   @Output() public reload: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
   
   constructor(private facsadeService: FacsadeService,
     private facsade: FascadeService) { }
@@ -59,6 +61,10 @@ export class BlogPostComponent implements OnInit {
     });
   }
   
+  public edit() {
+    this.editMode.emit(this.post.id);
+  }
+
   openModal(id: string, button: string) {
     this.facsade.open(id);
     this.buttonPressed = button;

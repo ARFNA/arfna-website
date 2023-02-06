@@ -19,16 +19,16 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <div *ngIf="currentState === 'newPost'">
-        <app-new-post-form (statechange)="changeState($event)">
+        <app-new-post-form (statechange)="changeState($event)" [currentPost]="currentEditPost">
         </app-new-post-form>
       </div>
 
       <div *ngIf="currentState === 'drafts'">
-        <app-blog-page [loadFilter]="'draftPosts'"></app-blog-page>
+        <app-blog-page [loadFilter]="'draftPosts'" (editMode)="changeState('newPost', $event)"></app-blog-page>
       </div>
 
       <div *ngIf="currentState === 'myPosts'">
-        <app-blog-page [authorId]="userLoggedIn" [loadFilter]="'myPosts'"></app-blog-page>
+        <app-blog-page [authorId]="userLoggedIn" [loadFilter]="'myPosts'" (editMode)="changeState('newPost', $event)"></app-blog-page>
       </div>
 
       <div *ngIf="currentState === 'accept' &&
