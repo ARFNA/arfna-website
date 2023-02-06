@@ -14,7 +14,8 @@ export class PostService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-      })
+      }),
+      withCredentials: true
     };
   }
 
