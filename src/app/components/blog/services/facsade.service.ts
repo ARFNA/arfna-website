@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Image } from 'src/app/models/image';
 import { Post } from 'src/app/models/post';
 import { PostService } from './post.service';
 
@@ -45,6 +46,14 @@ export class FacsadeService {
   public redirect(url: string) {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
     this.router.navigate([url]));
+  }
+
+  public saveImage(id: number | undefined, image: Image) {
+    return this.postService.saveImage(id, image);
+  }
+
+  public getImage(url: string) {
+    return this.postService.getImage(url);
   }
 
 }

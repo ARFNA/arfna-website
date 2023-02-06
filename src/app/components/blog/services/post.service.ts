@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Image } from 'src/app/models/image';
 import { Post } from 'src/app/models/post';
 import { environment } from 'src/environments/environment';
 
@@ -103,6 +104,29 @@ export class PostService {
       },
       'version': 'V1',
       'mutation': 'DELETE'
+    },
+      this.httpOptions());
+  }
+
+  public saveImage(id: number | undefined, image: Image) {
+    return this.http.post(
+      this.urlBuilder('mimage'), {
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'requestType': 'UPLOAD_IMAGE',
+      'thumbnail': image
+    },
+      this.httpOptions());
+  }
+
+  public getImage(url: string) {
+    return this.http.post(
+      this.urlBuilder('mimage'), {
+        'version': 'V1',
+        'requestType': 'DOWNLOAD_IMAGE',
+        's3Path': url
     },
       this.httpOptions());
   }

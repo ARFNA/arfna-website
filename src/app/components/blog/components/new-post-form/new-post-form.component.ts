@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { debounceTime } from 'rxjs';
+import { Image } from 'src/app/models/image';
 import { Post } from 'src/app/models/post';
 import { Errors } from '../../constants/errors.constants';
 import { FacsadeService } from '../../services/facsade.service';
@@ -17,13 +18,16 @@ export class NewPostFormComponent implements OnInit {
 
   public content: Map<string, string> = new Map();
 
-  public currentPost!: number;
+  @Input()
+  public currentPost!: number | undefined;
 
   public saving: boolean = false;
 
   public submitting: boolean = false;
 
   public errorMessage: string = '';
+
+  public selectedFile: any;
 
   @Output()
   public statechange: EventEmitter<string> = new EventEmitter();
@@ -68,9 +72,19 @@ export class NewPostFormComponent implements OnInit {
 
     this.saveSubscription = this.postForm.valueChanges.pipe(
       debounceTime(2000),
-    ).subscribe((result) => {this.save();});
+    ).subscribe((result: any) => {this.save();});
 
-    this.save();
+    if (!this.currentPost) {
+      this.save();
+    } else {
+      this.fascadeService.getPost(this.currentPost)
+        .subscribe((data: any) => {
+        if (!data.response.post.title) {
+            data.response.post.title = 'untitled';
+        }
+          this.postForm.patchValue(data.response.post);
+      })
+    }
   }
 
   public processConstants(): void {
@@ -106,6 +120,37 @@ export class NewPostFormComponent implements OnInit {
     let form = this.postForm.value;
     let post = new Post(form.title, form.markdown, this.currentPost);
 
+    if(this.selectedFile) {
+      this.encodeBase64().then((data: any) =>{
+        const img: Image = {
+          base64: data.toString().replace(/^data:(.*,)?/, ''),
+          extension: '.' + this.selectedFile.type.replace(/^image\/?/, '')
+        }
+        this.fascadeService.saveImage(this.currentPost, img).subscribe((response: any) => {
+           post.thumbnail = response.response.imageId;
+           this.savePost(post);
+         });
+      });
+    }
+  }
+
+  public onFileSelected(event: any): void {
+    if (event.target.files[0].type === 'image/jpeg' ||
+    event.target.files[0].type === 'image/png' ) {
+      this.selectedFile = event.target.files[0] ?? null;
+    }
+  }
+
+  private encodeBase64(): Promise<string | ArrayBuffer | null> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.selectedFile);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  private savePost(post: Post) {
     this.fascadeService.submitPost(post).subscribe((response) => {
       this.submitting = false;
       this.statechange.emit('myPosts');
@@ -115,5 +160,6 @@ export class NewPostFormComponent implements OnInit {
       this.errorMessage = error.status.message;
     });
   }
+
 
 }

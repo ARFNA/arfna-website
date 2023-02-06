@@ -19,6 +19,14 @@
         <mat-error *ngIf="postForm.controls['markdown'].hasError"> {{ proccessErrors("markdown") }}
         </mat-error>
 
+        <div>
+        <h2>Add a thumbnail:</h2>
+        <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Choose File</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+        <span class="file-name">{{selectedFile?.name}}</span>
+        <p>Please ensure the file is .jpg or .png</p>
+        </div>
+
         <mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
         <button (click)="save()" mat-raised-button color="primary">
             <span>Save</span>

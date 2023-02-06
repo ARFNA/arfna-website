@@ -3,7 +3,7 @@
         <div class="toolbar">
         <mat-spinner *ngIf="!loaded"></mat-spinner>
         <div *ngFor="let post of posts">
-            <app-blog-post [post]="post" [tabState]="loadFilter" (reload)="loadPosts()">
+            <app-blog-post [post]="post" [tabState]="loadFilter" (reload)="loadPosts()" (editMode)="editPost($event)">
             </app-blog-post>
         </div>
     </div>

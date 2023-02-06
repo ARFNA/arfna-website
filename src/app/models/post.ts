@@ -5,6 +5,7 @@ export class Post {
     public title!: string;
     public markdown!: string;
     public author!: Author;
+    public thumbnail!: string;
     public isSubmitted!: boolean;
     public isAccepted!: boolean;
     public isPublished!: boolean;

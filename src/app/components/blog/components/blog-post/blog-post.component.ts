@@ -17,7 +17,11 @@ export class BlogPostComponent {
 
   public buttonPressed: string = '';
 
+  public image: string = '../../../../../assets/peanut-butter.jpg';
+
   @Output() public reload: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
   
   constructor(private facsadeService: FacsadeService,
     private facsade: FascadeService) { }
@@ -25,6 +29,13 @@ export class BlogPostComponent {
   ngOnInit(): void {
     if (!this.post.title) {
       this.post.title = 'untitled';
+    }
+
+    if (this.post.thumbnail) {
+      console.log(this.post.thumbnail);
+      this.facsadeService.getImage(this.post.thumbnail).subscribe((response: any) => {
+        this.image = 'data:image/' + response.response.thumbnail.extension + ';base64,' + response.response.thumbnail.base64;
+      });
     }
   }
 
@@ -59,6 +70,10 @@ export class BlogPostComponent {
     });
   }
   
+  public edit() {
+    this.editMode.emit(this.post.id);
+  }
+
   openModal(id: string, button: string) {
     this.facsade.open(id);
     this.buttonPressed = button;
@@ -76,6 +91,9 @@ export class BlogPostComponent {
           break;
         case 'publish':
           this.publish();
+          break;
+        case 'edit':
+          this.edit();
           break;
       }
     }
