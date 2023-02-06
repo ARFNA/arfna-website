@@ -1,0 +1,39 @@
+<mat-card>
+    <form [formGroup]="postForm">
+        <h2>Add a Post Title:</h2>
+        <mat-form-field appearance="outline">
+            <mat-label>Add Title Here:</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="postForm.controls['title'].hasError"> {{ proccessErrors("title") }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <h2>Add a Post Body:</h2>
+        <angular-editor formControlName='markdown' [placeholder]="htmlContent" [config]="config"></angular-editor>
+        
+        <div class="save">
+            <mat-spinner [diameter]="20" *ngIf="saving"></mat-spinner> <p *ngIf="saving">Saving...</p>
+            <p *ngIf="!saving">We save your changes automatically!</p>
+        </div>
+        <mat-error *ngIf="postForm.controls['markdown'].hasError"> {{ proccessErrors("markdown") }}
+        </mat-error>
+
+        <div>
+        <h2>Add a thumbnail:</h2>
+        <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Choose File</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+        <span class="file-name">{{selectedFile?.name}}</span>
+        <p>Please ensure the file is .jpg or .png</p>
+        </div>
+
+        <mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
+        <button (click)="save()" mat-raised-button color="primary">
+            <span>Save</span>
+        </button>
+        <button (click)="submit()" [disabled]="postForm.invalid" mat-raised-button color="primary">
+            <span>Submit</span>
+        </button>
+    </form>
+
+</mat-card>

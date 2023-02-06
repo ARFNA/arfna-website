@@ -1,0 +1,11 @@
+.section {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+@media (max-width: 750px) {
+    .section {
+        width: 80%;
+    }
+}

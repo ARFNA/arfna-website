@@ -1,0 +1,43 @@
+img {
+    max-height: 400px;
+    width: 100%;
+    margin: 10px;
+    border: 5px solid #99c5b5;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+}
+
+.flex-container {
+    display: inline-flex;
+}
+
+.margin {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+button {
+    margin-top: 25%;
+}
+
+@media (max-width: 750px) {
+    img {
+        max-width: 250px;
+    }
+
+    button {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    img {
+        max-height: 250px;
+    }
+
+    button {
+        display: none;
+    }
+}

@@ -1,0 +1,25 @@
+<div class="formBackground">
+    <mat-icon color="primary">newspaper</mat-icon>
+    <h1 class="mat-display-1">Newsletter</h1>
+    <mat-card>
+        <form [formGroup]="form" *ngIf="!success">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="emailAddress">
+                <mat-error *ngIf="form.controls['emailAddress'].hasError"> {{ proccessErrors(form, "emailAddress", content) }} </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="form.controls['name'].hasError"> {{ proccessErrors(form, "name", content) }} </mat-error>
+            </mat-form-field>
+            <button mat-raised-button (click)="submit()" color="primary">Submit</button>
+            <mat-error *ngIf="errorMessage"> {{ errorMessage }} </mat-error>
+        </form>
+        <mat-progress-bar *ngIf="active" mode="indeterminate"></mat-progress-bar>
+        <div *ngIf="success">
+            <h3>You are now Subscribed!</h3>
+            <mat-icon color="primary">check_circle</mat-icon>
+        </div>
+    </mat-card>
+</div>

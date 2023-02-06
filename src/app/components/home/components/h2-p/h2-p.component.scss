@@ -1,0 +1,15 @@
+.innerText {
+    text-align: left;
+    line-height: 200%
+}
+
+h2 {
+    padding-top: 2rem;
+    color: #99c5b5;
+}
+
+@media (max-width: 1300px) {
+    .innerText {
+        line-height: 150%;
+    }
+}
