@@ -17,6 +17,8 @@ export class BlogPostComponent implements OnInit {
 
   public buttonPressed: string = '';
 
+  public image: string = '../../../../../assets/peanut-butter.jpg';
+
   @Output() public reload: EventEmitter<any> = new EventEmitter<any>();
 
   @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
@@ -27,6 +29,13 @@ export class BlogPostComponent implements OnInit {
   ngOnInit(): void {
     if (!this.post.title) {
       this.post.title = 'untitled';
+    }
+
+    if (this.post.thumbnail) {
+      console.log(this.post.thumbnail);
+      this.facsadeService.getImage(this.post.thumbnail).subscribe((response: any) => {
+        this.image = 'data:image/' + response.response.thumbnail.extension + ';base64,' + response.response.thumbnail.base64;
+      });
     }
   }
 
