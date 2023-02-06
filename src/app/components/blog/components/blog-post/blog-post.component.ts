@@ -83,6 +83,9 @@ export class BlogPostComponent implements OnInit {
         case 'publish':
           this.publish();
           break;
+        case 'edit':
+          this.edit();
+          break;
       }
     }
   }
