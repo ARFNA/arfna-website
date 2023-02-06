@@ -82,7 +82,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.fascadeService.close(id);
     if (confirm) {
       this.fascadeService.acceptTerms().subscribe((data) => {
-         this.userLoggedIn = data.response.subscriber;
+        // data.body.subscriber
+         this.userLoggedIn = data.body.subscriber;
       });
     }
   }
