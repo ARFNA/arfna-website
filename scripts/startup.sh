@@ -15,7 +15,7 @@ log_file=${deployment_dir}/log.txt
 
 echo "Copying files from deployment group directory to root"
 website=${deployment_dir}/arfna-website
-mkdir ${deployment_dir} && cp -r ${deployment_group_deployment_dir}/arfna-website ${website}
+mkdir ${deployment_dir} && mkdir ${deployment_dir} && sudo cp -r ${deployment_group_deployment_dir}/arfna-website ${deployment_dir}
 
 echo "Launching website at port 8080"
 http-server ${website} >> ${log_file} 2>&1 &
