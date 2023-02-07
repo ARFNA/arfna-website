@@ -39,6 +39,7 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.userObservable = this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
       (response: any) => {
         if (response) {
+          console.log(response)
           this.userLoggedIn = response.body.response.subscriber;
           console.log(this.userLoggedIn.acceptedTermsOfService);
           if (!this.userLoggedIn.acceptedTermsOfService) {
@@ -82,8 +83,10 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.fascadeService.close(id);
     if (confirm) {
       this.fascadeService.acceptTerms().subscribe((data) => {
-        // this.userLoggedIn = data.response.subscriber
-         this.userLoggedIn = data.body.subscriber;
+        console.log(data.body.response.subscriber)
+        this.userLoggedIn = data.body.response.subscriber;
+        console.log(this.userLoggedIn)
+        return data.body.response.subscriber;
       });
     }
   }

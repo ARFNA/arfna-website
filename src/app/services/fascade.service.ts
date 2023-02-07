@@ -42,6 +42,7 @@ export class FascadeService {
   }
 
   public getUserLoggedIn(user: RSubscriber) {
+    console.log("Calling this")
     return this.token.rSubscriber(user);
   }
 

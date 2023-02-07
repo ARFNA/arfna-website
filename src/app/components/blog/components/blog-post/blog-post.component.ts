@@ -20,7 +20,7 @@ export class BlogPostComponent {
   public image: string = '../../../../../assets/peanut-butter.jpg';
 
   @Output() public reload: EventEmitter<any> = new EventEmitter<any>();
-
+ 
   @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
   
   constructor(private facsadeService: FacsadeService,
@@ -75,13 +75,18 @@ export class BlogPostComponent {
   }
 
   openModal(id: string, button: string) {
-    this.facsade.open(id);
+    console.log(button)
+    console.log("Open Modal post id: " + id)
     this.buttonPressed = button;
+    this.facsade.open(id+this.post.id);
   }
 
   closeModal(id: string, confirm: boolean) {
-    this.facsade.close(id);
+    console.log("Button press " + this.buttonPressed)
+    console.log(this.post.id)
+    this.facsade.close(id+this.post.id);
     if (confirm) {
+      console.log("After confirm " + this.buttonPressed)
       switch (this.buttonPressed) {
         case 'delete':
           this.delete();
