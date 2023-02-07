@@ -8,9 +8,7 @@ nvm install 16
 echo "Installing http-server"
 npm install http-server -g
 
-current_dir=$(pwd)
-echo $(pwd)
-deployment_group_deployment_dir=${current_dir}/deployment-root/$DEPLOYMENT_GROUP_ID/$DEPLOYMENT_ID/deployment-archive
+deployment_group_deployment_dir=/opt/codedeploy-agent/deployment-root/$DEPLOYMENT_GROUP_ID/$DEPLOYMENT_ID/deployment-archive
 deployment_dir=/deployment
 log_file=${deployment_dir}/log.txt
 
