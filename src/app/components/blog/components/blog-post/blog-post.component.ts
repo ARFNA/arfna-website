@@ -75,8 +75,6 @@ export class BlogPostComponent {
   }
 
   openModal(id: string, button: string) {
-    console.log(button)
-    console.log("Open Modal post id: " + id)
     this.buttonPressed = button;
     this.facsade.open(id+this.post.id);
   }
