@@ -14,7 +14,6 @@ export class ModalService {
 
   add(modal: any) {
       // add modal to array of active modals
-      console.log(modal.id)
       this.modals.push(modal);
   }
 

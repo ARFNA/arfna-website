@@ -82,11 +82,8 @@ export class BlogPostComponent {
   }
 
   closeModal(id: string, confirm: boolean) {
-    console.log("Button press " + this.buttonPressed)
-    console.log(this.post.id)
     this.facsade.close(id+this.post.id);
     if (confirm) {
-      console.log("After confirm " + this.buttonPressed)
       switch (this.buttonPressed) {
         case 'delete':
           this.delete();
@@ -96,6 +93,11 @@ export class BlogPostComponent {
           break;
         case 'publish':
           this.publish();
+          let urlEncodeTitle = this.urlEncodeTitle();
+          let arr = new Array('/blog', this.post.id.toString(), this.urlEncodeTitle())
+          let redirectPath = arr.join('/')
+          window.location.href=redirectPath
+          this.facsadeService.redirect(redirectPath);
           break;
         case 'edit':
           this.edit();
