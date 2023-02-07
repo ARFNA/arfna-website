@@ -58,7 +58,7 @@ export class LoginSignupFormComponent implements OnInit {
 
     this.fascadeService.manageSubscriber(new MSubscriber('V1', 'CHECK_TYPE_FROM_EMAIL', emailData))
     .subscribe((response: any) => {
-      if (response.response.subscriberType === 'NAME_AND_EMAIL') {
+      if (response.body.response.subscriberType === 'NAME_AND_EMAIL') {
         method = 'ADD_PASSWORD';
       } else {
         method = 'ADD_SUBSCRIBER_WITH_PASSWORD';

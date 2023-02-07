@@ -14,7 +14,9 @@ export class PostService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-      })
+      }),
+      withCredentials: true,
+      observe: 'response' as 'response'
     };
   }
 
@@ -28,7 +30,8 @@ export class PostService {
       'version': 'V1',
       'requestType': 'GET_ALL_PUBLISHED'
     },
-      this.httpOptions());
+      this.httpOptions())
+      
   }
 
   public uPost() {
