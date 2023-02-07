@@ -17,4 +17,4 @@ website=${deployment_dir}/arfna-website
 sudo rm -rf ${deployment_dir} && mkdir ${deployment_dir} && sudo cp -r ${deployment_group_deployment_dir}/arfna-website ${deployment_dir}
 
 echo "Launching website at port 8080"
-http-server ${website} >> ${log_file} 2>&1 &
+node ${website}/server.js >> ${log_file} 2>&1 &
