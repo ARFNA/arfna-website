@@ -131,6 +131,8 @@ export class NewPostFormComponent implements OnInit {
            this.savePost(post);
          });
       });
+    } else {
+      this.savePost(post);
     }
   }
 
