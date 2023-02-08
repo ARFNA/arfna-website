@@ -40,7 +40,6 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
       (response: any) => {
         if (response) {
           this.userLoggedIn = response.body.response.subscriber;
-          console.log(this.userLoggedIn.acceptedTermsOfService);
           if (!this.userLoggedIn.acceptedTermsOfService) {
             this.openModal('TOS');
           }
@@ -82,8 +81,7 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.fascadeService.close(id);
     if (confirm) {
       this.fascadeService.acceptTerms().subscribe((data) => {
-        // this.userLoggedIn = data.response.subscriber
-         this.userLoggedIn = data.body.subscriber;
+        this.userLoggedIn = data.body.response.subscriber;
       });
     }
   }

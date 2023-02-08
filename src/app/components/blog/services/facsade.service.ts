@@ -15,18 +15,6 @@ export class FacsadeService {
 
   public getAllPosts() {
     return this.postService.gPost();
-    // let post: Observable<HttpResponse<Object>> = this.postService.gPost();
-    // console.log("Getting posts")
-    // post.subscribe(p => {
-    //   if (p!=null && p.body !=null ) {
-    //     let body: any = p.body
-    //     console.log(body.response)
-    //     return body.response
-    //   }
-    
-    // })
-
-    // return {posts: []};
   }
 
   public getMyPosts() {
