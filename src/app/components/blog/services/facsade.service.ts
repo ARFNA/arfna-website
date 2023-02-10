@@ -25,6 +25,10 @@ export class FacsadeService {
     return this.postService.getPost(id);
   }
 
+  public getPublishedPost(id: number) {
+    return this.postService.getPublishedPost(id);
+  }
+
   public savePost(post: Post) {
     return this.postService.savePost(post);
   }

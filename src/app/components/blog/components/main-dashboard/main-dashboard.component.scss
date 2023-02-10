@@ -10,9 +10,9 @@
   }
   
   .example-is-mobile .example-toolbar {
-    position: fixed;
+    position: fixed !important;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
+    z-index: 2 !important;
   }
   
   h1.example-app-name {
@@ -22,7 +22,7 @@
   .example-sidenav-container {
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
+    flex: 1 !important;
   }
   
   .example-is-mobile .example-sidenav-container {
@@ -32,6 +32,10 @@
   }
 
   mat-sidenav-content {
+    height: 100%;
+  }
+
+  .blogPage {
     height: 100%;
   }
 

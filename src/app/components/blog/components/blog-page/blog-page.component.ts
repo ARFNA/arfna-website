@@ -16,6 +16,8 @@ export class BlogPageComponent implements OnInit {
   public posts: any[] = [];
 
   public loaded: boolean = false;
+
+  public cols: number = 5;
   
   @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
 
@@ -23,6 +25,23 @@ export class BlogPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPosts();
+  }
+
+  ngDoCheck(): void {
+    if (this.getWidth() <= 650) {
+      this.cols = 1;
+    } else if (this.getWidth() <= 1100) {
+      this.cols = 2;
+    } else if (this.getWidth() <= 1400) {
+      this.cols = 3;
+    } else {
+      this.cols = 4;
+    }
+  }
+
+  /** For testing purposes */
+  getWidth(): number {
+    return window.screen.width
   }
 
   public loadPosts() {

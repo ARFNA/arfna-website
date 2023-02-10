@@ -21,15 +21,22 @@ export class BlogPageSingularComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.postID = params['id'];
 
-      this.fascadeService.getPost(this.postID).subscribe((data: any) => {
-        this.post = data.body.response.post;
-        if (!this.post.title) {
-          this.post.title = 'untitled';
-        }
+      this.fascadeService.getPublishedPost(this.postID).subscribe(
+        (data: any) => {
+          this.post = data.body.response.post;
+          if (!this.post.title) {
+            this.post.title = 'untitled';
+          }
+        }, 
+        (error) => {
+          this.fascadeService.getPost(this.postID).subscribe(
+            (data: any) => {
+              this.post = data.body.response.post;
+              if (!this.post.title) {
+                this.post.title = 'untitled';
+              }
+            })
+        });
       });
-    });
-
-    
   }
-
 }

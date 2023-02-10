@@ -23,20 +23,20 @@
         </app-new-post-form>
       </div>
 
-      <div *ngIf="currentState === 'drafts'">
+      <div class="blogPage" *ngIf="currentState === 'drafts'">
         <app-blog-page [loadFilter]="'draftPosts'" (editMode)="changeState('newPost', $event)"></app-blog-page>
       </div>
 
-      <div *ngIf="currentState === 'myPosts'">
+      <div class="blogPage" *ngIf="currentState === 'myPosts'">
         <app-blog-page [authorId]="userLoggedIn" [loadFilter]="'myPosts'" (editMode)="changeState('newPost', $event)"></app-blog-page>
       </div>
 
-      <div *ngIf="currentState === 'accept' &&
+      <div class="blogPage" *ngIf="currentState === 'accept' &&
           (userLoggedIn.role === 'maint' || userLoggedIn.role === 'admin')">
         <app-blog-page (statechange)="changeState($event)" [loadFilter]="'accept'"></app-blog-page>
       </div>
 
-      <div *ngIf="currentState === 'publish' &&
+      <div class="blogPage" *ngIf="currentState === 'publish' &&
           userLoggedIn.role === 'admin'">
         <app-blog-page (statechange)="changeState($event)" [loadFilter]="'publish'"></app-blog-page>
       </div>
