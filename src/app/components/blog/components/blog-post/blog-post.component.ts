@@ -32,7 +32,6 @@ export class BlogPostComponent {
     }
 
     if (this.post.thumbnail) {
-      console.log(this.post.thumbnail);
       this.facsadeService.getImage(this.post.thumbnail).subscribe((response: any) => {
         this.image = 'data:image/' + response.body.response.thumbnail.extension + ';base64,' + response.body.response.thumbnail.base64;
       });

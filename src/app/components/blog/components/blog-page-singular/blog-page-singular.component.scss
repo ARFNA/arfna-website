@@ -1,16 +1,16 @@
-h1 {
-    font-weight: 500;
+.mat-display-3 {
     color: #99c5b5;
+    margin: 0;
 }
 
-h3 {
+.mat-display-1 {
     font-weight: 300;
     font-style: italic;
 }
 
 .container {
     max-width: 70%;
-    background-color: #E0EEE9;
+    background-color: #FAFAFA;
     padding: 15px;
     margin: auto;
     height: 100vh;
@@ -43,4 +43,10 @@ button {
     all: initial;
     all: unset;
     text-align: unset;
+}
+
+.post {
+    padding-left: 7rem;
+    padding-right: 7rem;
+    padding-top: 3rem;
 }

@@ -34,6 +34,18 @@ export class PostService {
       
   }
 
+  public getPost(id: number) {
+    return this.http.post(
+      this.urlBuilder('mpost'), {
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'mutation': 'GET_EXISTING_POST'
+    },
+      this.httpOptions());
+  }
+
   public uPost() {
     return this.http.post(
       this.urlBuilder('mpost'), {
@@ -63,14 +75,14 @@ export class PostService {
       this.httpOptions());
   }
 
-  public getPost(id: number) {
+  public getPublishedPost(id: number) {
     return this.http.post(
-      this.urlBuilder('mpost'), {
+      this.urlBuilder('gpost'), {
       'post': {
         'id': id
       },
       'version': 'V1',
-      'mutation': 'GET_EXISTING_POST'
+      'requestType': 'GET_PUBLISHED_POST_FROM_ID'
     },
       this.httpOptions());
   }

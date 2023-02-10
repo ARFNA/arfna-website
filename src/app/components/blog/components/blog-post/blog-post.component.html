@@ -1,31 +1,29 @@
-<mat-card>
-        <mat-card-header>
-                <mat-card-title routerLink="/blog/{{post.id}}/{{urlEncodeTitle()}}">{{post.title}}</mat-card-title>
-                <mat-card-subtitle routerLink="/blog/{{post.id}}/{{urlEncodeTitle()}}">By:
-                        {{post.author?.name}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="{{image}}" alt="Photo of a Shiba Inu"
-                routerLink="/blog/{{post.id}}/{{urlEncodeTitle()}}">
-        <mat-card-actions align="end">
-                <button mat-icon-button *ngIf="post.isSubmitted && !post.isAccepted && tabState === 'myPosts'"
-                        matTooltip="Submitted" matTooltipPosition="before"><mat-icon class="example-icon"
-                                color="primary">check</mat-icon></button>
-                <button mat-icon-button *ngIf="post.isAccepted && !post.isPublished && tabState === 'myPosts'"
-                        matTooltip="Accepted" matTooltipPosition="before"><mat-icon class="example-icon"
-                                color="primary">done_all</mat-icon></button>
-                <button mat-icon-button *ngIf="post.isPublished && tabState === 'myPosts'" matTooltip="Published"
-                        matTooltipPosition="before"><mat-icon class="example-icon"
-                                color="primary">download_done</mat-icon></button>
-                <button mat-mini-fab color="primary" *ngIf="tabState === 'myPosts' || tabState === 'draftPosts'"
-                        (click)="openModal('modal-6', 'edit')"><mat-icon class="example-icon">edit</mat-icon></button>
-                <button mat-mini-fab (click)="openModal('modal-6', 'delete')" color="primary" *ngIf="tabState"><mat-icon
-                                class="example-icon">delete</mat-icon></button>
-                <button mat-mini-fab (click)="openModal('modal-6', 'accept')" color="primary"
-                        *ngIf="tabState === 'accept'"><mat-icon class="example-icon">check</mat-icon></button>
-                <button mat-mini-fab (click)="openModal('modal-6', 'publish')" color="primary"
-                        *ngIf="tabState === 'publish'"><mat-icon class="example-icon">done_all</mat-icon></button>
-        </mat-card-actions>
-</mat-card>
+<div class="header" style=>
+        <h2 routerLink="/blog/{{post.id}}/{{urlEncodeTitle()}}">{{post.title}}</h2>
+        <h4 routerLink="/blog/{{post.id}}/{{urlEncodeTitle()}}">By: {{post.author?.name}}</h4>
+</div>
+<div class="image">
+        <img src="{{image}}" routerLink="/blog/{{post.id}}/{{urlEncodeTitle()}}">
+</div>
+<div class="actions">
+        <button mat-icon-button *ngIf="post.isSubmitted && !post.isAccepted && tabState === 'myPosts'"
+                matTooltip="Submitted" matTooltipPosition="before"><mat-icon class="example-icon"
+                        color="primary">check</mat-icon></button>
+        <button mat-icon-button *ngIf="post.isAccepted && !post.isPublished && tabState === 'myPosts'"
+                matTooltip="Accepted" matTooltipPosition="before"><mat-icon class="example-icon"
+                        color="primary">done_all</mat-icon></button>
+        <button mat-icon-button *ngIf="post.isPublished && tabState === 'myPosts'" matTooltip="Published"
+                matTooltipPosition="before"><mat-icon class="example-icon"
+                        color="primary">download_done</mat-icon></button>
+        <button mat-mini-fab color="primary" *ngIf="tabState === 'myPosts' || tabState === 'draftPosts'"
+                (click)="openModal('modal-6', 'edit')"><mat-icon class="example-icon">edit</mat-icon></button>
+        <button mat-mini-fab (click)="openModal('modal-6', 'delete')" color="primary" *ngIf="tabState"><mat-icon
+                        class="example-icon">delete</mat-icon></button>
+        <button mat-mini-fab (click)="openModal('modal-6', 'accept')" color="primary"
+                *ngIf="tabState === 'accept'"><mat-icon class="example-icon">check</mat-icon></button>
+        <button mat-mini-fab (click)="openModal('modal-6', 'publish')" color="primary"
+                *ngIf="tabState === 'publish'"><mat-icon class="example-icon">done_all</mat-icon></button>
+</div>
 
 <app-modal id="modal-6{{post.id}}">
         <h2 class="green">Confirm Action</h2>

@@ -137,9 +137,13 @@ export class NewPostFormComponent implements OnInit {
   }
 
   public onFileSelected(event: any): void {
+    const filesize = ((event.target.files[0].size/1024)/1024);
     if (event.target.files[0].type === 'image/jpeg' ||
-    event.target.files[0].type === 'image/png' ) {
+    event.target.files[0].type === 'image/png' && filesize <= 2) {
       this.selectedFile = event.target.files[0] ?? null;
+      console.log(filesize)
+    } else {
+      alert('Upload limited to 2MB jpg/png only');
     }
   }
 
