@@ -52,3 +52,16 @@ button {
     padding-right: 7rem;
     padding-top: 3rem;
 }
+
+@media (max-width: 768px) {
+    .post {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    .mat-display-3 {
+        color: #99c5b5;
+        margin: 0;
+        font-size: 40px;
+    }
+}
