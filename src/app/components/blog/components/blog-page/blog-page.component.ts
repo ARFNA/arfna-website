@@ -20,8 +20,6 @@ export class BlogPageComponent implements OnInit {
   @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
 
   public cols: number = 5;
-  
-  @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private fascade: FacsadeService) { }
 
