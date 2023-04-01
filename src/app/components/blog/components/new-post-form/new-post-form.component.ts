@@ -79,10 +79,10 @@ export class NewPostFormComponent implements OnInit {
     } else {
       this.fascadeService.getPost(this.currentPost)
         .subscribe((data: any) => {
-        if (!data.response.post.title) {
-            data.response.post.title = 'untitled';
+        if (!data.body.response.post.title) {
+            data.body.response.post.title = 'untitled';
         }
-          this.postForm.patchValue(data.response.post);
+          this.postForm.patchValue(data.body.response.post);
       })
     }
   }
@@ -104,8 +104,8 @@ export class NewPostFormComponent implements OnInit {
 
     this.fascadeService.savePost(post).subscribe((response: any) => {
       this.saving = false;
-      if (response.response.post.id) {
-        this.currentPost = response.response.post.id;
+      if (response.body.response.post.id) {
+        this.currentPost = response.body.response.post.id;
       }
 
     }, (error) => {
@@ -127,17 +127,23 @@ export class NewPostFormComponent implements OnInit {
           extension: '.' + this.selectedFile.type.replace(/^image\/?/, '')
         }
         this.fascadeService.saveImage(this.currentPost, img).subscribe((response: any) => {
-           post.thumbnail = response.response.imageId;
+           post.thumbnail = response.body.response.imageId;
            this.savePost(post);
          });
       });
+    } else {
+      this.savePost(post);
     }
   }
 
   public onFileSelected(event: any): void {
+    const filesize = ((event.target.files[0].size/1024)/1024);
     if (event.target.files[0].type === 'image/jpeg' ||
-    event.target.files[0].type === 'image/png' ) {
+    event.target.files[0].type === 'image/png' && filesize <= 2) {
       this.selectedFile = event.target.files[0] ?? null;
+      console.log(filesize)
+    } else {
+      alert('Upload limited to 2MB jpg/png only');
     }
   }
 
@@ -163,3 +169,4 @@ export class NewPostFormComponent implements OnInit {
 
 
 }
+

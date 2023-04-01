@@ -1,10 +1,12 @@
 <div class="background">
     <div class="container">
-        <div class="toolbar">
-        <mat-spinner *ngIf="!loaded"></mat-spinner>
-        <div *ngFor="let post of posts">
-            <app-blog-post [post]="post" [tabState]="loadFilter" (reload)="loadPosts()" (editMode)="editPost($event)">
-            </app-blog-post>
-        </div>
+            <mat-spinner *ngIf="!loaded"></mat-spinner>
+            <mat-grid-list cols="{{cols}}" gutterSize="10px" rowHeight="350px">
+                <mat-grid-tile class="mat-elevation-z4" style="border-radius: 4px;" *ngFor="let post of posts">
+                    <app-blog-post [post]="post" [tabState]="loadFilter" (reload)="loadPosts()"
+                        (editMode)="editPost($event)">
+                    </app-blog-post>
+                </mat-grid-tile>
+            </mat-grid-list>
     </div>
 </div>

@@ -1,15 +1,13 @@
 <div class="background">
     <div class="container">
-        <mat-card>
             <div class="post">
-                <h1>
+                <p class="mat-display-3">
                     {{post?.title}}
-                </h1>
-                <h3>
+                </p>
+                <p class="mat-display-1">
                     By: {{post?.author?.name}}
-                </h3>
+                </p>
                 <div class="unsetGlobalStyles" [innerHTML]="post?.markdown"></div>
             </div>
-        </mat-card>
     </div>
 </div>

@@ -19,10 +19,31 @@ export class BlogPageComponent implements OnInit {
   
   @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
 
+  public cols: number = 5;
+  
+  @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
+
   constructor(private fascade: FacsadeService) { }
 
   ngOnInit(): void {
     this.loadPosts();
+  }
+
+  ngDoCheck(): void {
+    if (this.getWidth() <= 650) {
+      this.cols = 1;
+    } else if (this.getWidth() <= 1100) {
+      this.cols = 2;
+    } else if (this.getWidth() <= 1400) {
+      this.cols = 3;
+    } else {
+      this.cols = 4;
+    }
+  }
+
+  /** For testing purposes */
+  getWidth(): number {
+    return window.screen.width
   }
 
   public loadPosts() {
@@ -31,18 +52,18 @@ export class BlogPageComponent implements OnInit {
       case '': {
         this.fascade.getAllPosts().subscribe(
           (response: any) => {
-            if (response.response.posts.length) {
-              this.posts = response.response.posts;
-            }
-            this.loaded = true;
+              if (response.body.response.posts.length) {
+                this.posts = response.body.response.posts;
+              }
+              this.loaded = true;
           });
           break;
       }
       case 'myPosts': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isSubmitted === true && 
                 post.author.id === this.authorId.id);
             }
@@ -54,8 +75,8 @@ export class BlogPageComponent implements OnInit {
       case 'draftPosts': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isSubmitted === false);
             }
             this.loaded = true;
@@ -66,8 +87,8 @@ export class BlogPageComponent implements OnInit {
       case 'accept': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isSubmitted === true
                 && post.isAccepted === false);
             }
@@ -79,8 +100,8 @@ export class BlogPageComponent implements OnInit {
       case 'publish': {
         this.fascade.getMyPosts().subscribe(
           (response: any) => {
-            if (response.response.allPosts.length) {
-              this.posts = response.response.allPosts.filter(
+            if (response.body.response.allPosts.length) {
+              this.posts = response.body.response.allPosts.filter(
                 (post: any) => post.isAccepted === true
                 && post.isPublished === false);
             }

@@ -14,7 +14,9 @@ export class LoginService {
     return {
       headers: new HttpHeaders({
         'Content-Type':  'text/json'
-      })
+      }),
+      withCredentials: true,
+      observe: 'response' as 'response'
     };
   }
 

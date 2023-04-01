@@ -14,7 +14,9 @@ export class PostService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-      })
+      }),
+      withCredentials: true,
+      observe: 'response' as 'response'
     };
   }
 
@@ -27,6 +29,19 @@ export class PostService {
       this.urlBuilder('gpost'), {
       'version': 'V1',
       'requestType': 'GET_ALL_PUBLISHED'
+    },
+      this.httpOptions())
+      
+  }
+
+  public getPost(id: number) {
+    return this.http.post(
+      this.urlBuilder('mpost'), {
+      'post': {
+        'id': id
+      },
+      'version': 'V1',
+      'mutation': 'GET_EXISTING_POST'
     },
       this.httpOptions());
   }
@@ -60,14 +75,14 @@ export class PostService {
       this.httpOptions());
   }
 
-  public getPost(id: number) {
+  public getPublishedPost(id: number) {
     return this.http.post(
-      this.urlBuilder('mpost'), {
+      this.urlBuilder('gpost'), {
       'post': {
         'id': id
       },
       'version': 'V1',
-      'mutation': 'GET_EXISTING_POST'
+      'requestType': 'GET_PUBLISHED_POST_FROM_ID'
     },
       this.httpOptions());
   }

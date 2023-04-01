@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogPageSingularComponent } from './components/blog-page-singular/blog-page-singular.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeModule } from '../home/home.module';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { HomeModule } from '../home/home.module';
     ReactiveFormsModule,
     MatProgressBarModule,
     MatTooltipModule,
-    HomeModule
+    HomeModule,
+    MatGridListModule
   ]
 })
 export class BlogModule { }
