@@ -20,7 +20,7 @@ export class BlogPostComponent {
   public image: string = '../../../../../assets/peanut-butter.jpg';
 
   @Output() public reload: EventEmitter<any> = new EventEmitter<any>();
-
+ 
   @Output() public editMode: EventEmitter<number> = new EventEmitter<number>();
   
   constructor(private facsadeService: FacsadeService,
@@ -32,9 +32,8 @@ export class BlogPostComponent {
     }
 
     if (this.post.thumbnail) {
-      console.log(this.post.thumbnail);
       this.facsadeService.getImage(this.post.thumbnail).subscribe((response: any) => {
-        this.image = 'data:image/' + response.response.thumbnail.extension + ';base64,' + response.response.thumbnail.base64;
+        this.image = 'data:image/' + response.body.response.thumbnail.extension + ';base64,' + response.body.response.thumbnail.base64;
       });
     }
   }
@@ -75,12 +74,12 @@ export class BlogPostComponent {
   }
 
   openModal(id: string, button: string) {
-    this.facsade.open(id);
     this.buttonPressed = button;
+    this.facsade.open(id+this.post.id);
   }
 
   closeModal(id: string, confirm: boolean) {
-    this.facsade.close(id);
+    this.facsade.close(id+this.post.id);
     if (confirm) {
       switch (this.buttonPressed) {
         case 'delete':
@@ -91,6 +90,11 @@ export class BlogPostComponent {
           break;
         case 'publish':
           this.publish();
+          let urlEncodeTitle = this.urlEncodeTitle();
+          let arr = new Array('/blog', this.post.id.toString(), this.urlEncodeTitle())
+          let redirectPath = arr.join('/')
+          window.location.href=redirectPath
+          this.facsadeService.redirect(redirectPath);
           break;
         case 'edit':
           this.edit();
