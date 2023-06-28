@@ -54,7 +54,7 @@ export class NewPostFormComponent implements OnInit {
     ],
     toolbarHiddenButtons: [
       [],
-      ['insertImage', 'customClasses', 'insertVideo', 'toggleEditorMode']
+      ['customClasses', 'insertVideo', 'toggleEditorMode']
     ]
   };
 
