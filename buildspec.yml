@@ -17,6 +17,7 @@ phases:
             - cp scripts/startup.sh dist/scripts/startup.sh
             - cp scripts/shutdown.sh dist/scripts/shutdown.sh
             - cp scripts/validate.sh dist/scripts/validate.sh
+            - cp -r dist/arfna-website/ dist/
 
 artifacts:
     files:
