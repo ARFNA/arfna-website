@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ApplyForScholarshipComponent } from './components/apply-for-scholarship/apply-for-scholarship.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
         return m.BlogModule;
       });
     }, path: "blog"
+  },
+  {
+    path: 'apply',
+    component: ApplyForScholarshipComponent
   },
   {
     path: "404",

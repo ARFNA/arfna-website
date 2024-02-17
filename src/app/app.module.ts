@@ -15,13 +15,15 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogModule } from './components/blog/blog.module';
 import { ModalComponent } from './components/modal/modal.component';
+import { ApplyForScholarshipComponent } from './components/apply-for-scholarship/apply-for-scholarship.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ApplyForScholarshipComponent
   ],
   imports: [
     BrowserModule,
