@@ -50,8 +50,8 @@ export class BlogPageComponent implements OnInit {
       case '': {
         this.fascade.getAllPosts().subscribe(
           (response: any) => {
-              if (response.body.response.posts.length) {
-                this.posts = response.body.response.posts;
+              if (response.body.length) {
+                this.posts = response.body;
               }
               this.loaded = true;
           });

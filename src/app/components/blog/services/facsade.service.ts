@@ -1,7 +1,5 @@
-import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Image } from 'src/app/models/image';
 import { Post } from 'src/app/models/post';
 import { PostService } from './post.service';
@@ -60,6 +58,11 @@ export class FacsadeService {
 
   public getImage(url: string) {
     return this.postService.getImage(url);
+  }
+
+  public getImageFromUrl(imageEndpoint: string) {
+    const s3Url = "https://arfna-images.s3.us-east-1.amazonaws.com/" + imageEndpoint;
+    return this.postService.getImageFromUrl(s3Url);
   }
 
 }
