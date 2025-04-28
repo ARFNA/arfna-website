@@ -36,18 +36,18 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.userObservable = this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
-      (response: any) => {
-        if (response) {
-          this.userLoggedIn = response.body.response.subscriber;
-          if (!this.userLoggedIn.acceptedTermsOfService) {
-            this.openModal('TOS');
-          }
-        }
-    },
-    (error: any) => {
-      this.fascadeService.routeTo('/404');
-    });
+    // this.userObservable = this.fascadeService.getUserLoggedIn(new RSubscriber('V1', 'ALL')).subscribe(
+    //   (response: any) => {
+    //     if (response) {
+    //       this.userLoggedIn = response.body.response.subscriber;
+    //       if (!this.userLoggedIn.acceptedTermsOfService) {
+    //         this.openModal('TOS');
+    //       }
+    //     }
+    // },
+    // (error: any) => {
+    //   this.fascadeService.routeTo('/404');
+    // });
   }
 
   ngOnDestroy(): void {

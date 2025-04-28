@@ -23,7 +23,7 @@ export class BlogPageSingularComponent implements OnInit {
 
       this.fascadeService.getPublishedPost(this.postID).subscribe(
         (data: any) => {
-          this.post = data.body.response.post;
+          this.post = data.body[0];
           if (!this.post.title) {
             this.post.title = 'untitled';
           }
